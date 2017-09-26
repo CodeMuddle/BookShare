@@ -1,7 +1,12 @@
 # book-share
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+BookShare is a web app that helps user to track the whereabouts of the books borrowed by their peers. Users can add books they want to lend and request those they want to borrow.
+
+## Technicalities
+- pod structure used with prefix *src*
+- dependencies: *ember-concurrency*, *ember-cli-ember*, *ember-validations*, *ember-state-services*
+- material design
+- Test Driven Development (TDD)
 
 ## Prerequisites
 

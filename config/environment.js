@@ -4,6 +4,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'book-share',
+    podModulePrefix: 'book-share/src',
     environment,
     rootURL: '/',
     locationType: 'auto',
