@@ -1,0 +1,83 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">   
+    <link rel="stylesheet" href="css/detailkostyle.css" type="text/css"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="col s12 m7">
+        <h2 class="header">Book Details</h2>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img class="materialboxed" src="https://images.gr-assets.com/books/1458743204l/21525975.jpg">
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <!--book details-->
+              <h4>Burning</h4>
+              <span style="color: #26a69a">by Danielle Rollins</span><br><br>
+              <p>After three years in juvie, Angela Davis is just a few months shy of release, and she'll finally be free from the hole that is Brunesfield Correctional Facility. Then Jessica arrives. Only ten years old and under the highest security possible, this girl has to be dangerous, even if no one knows what she did to land in juvie. As strange things begin happening to Angela and her friends that can only be traced to the new girl's arrival, it becomes clear that Brunesfield is no longer safe. They must find a way to get out, but how can they save themselves when the world has forgotten them?</p>
+            </div>
+
+          </div>
+
+        </div>
+        
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+          <div class="modal-content">
+            <h4>Book Request</h4>
+            <!--dropdown-->
+     <br>       <!-- Dropdown Trigger -->
+    Days 
+    <div class="md-select">
+
+  <label for="ul-id"><button type="button" class="ng-binding">Choose any</button></label>
+  <ul role="listbox" id="ul-id" class="md-whiteframe-z1" aria-activedescendant="state2_AK" name="ul-id">
+    <li role="option"  class="ng-binding ng-scope active" tabindex="-1" aria-selected="true">1</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">2</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">3</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">4</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">5</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">6</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">7</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">8</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">9</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">10</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">11</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">12</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">13</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">14</li>
+    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">15</li>
+  </ul>
+
+</div>
+
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">APPLY</a>
+          </div>
+        </div>
+        <!--modal end-->
+      </div>
+    </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="js/demo.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });  
+    </script>
+  </body>
+  </html>
