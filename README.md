@@ -4,8 +4,8 @@ BookShare is a web app that helps user to track the whereabouts of the books bor
 
 ## Technicalities
 - pod structure used with prefix *src*
-- dependencies: *ember-concurrency*, *ember-cli-ember*, *ember-validations*, *ember-state-services*
-- material design
+- dependencies: *ember-concurrency*, *ember-cli-ember*, *ember-validations*, *ember-state-services*, *ember-simple-auth*
+- material design: *ember-cli-materialize*
 - Test Driven Development (TDD)
 
 ## Prerequisites
