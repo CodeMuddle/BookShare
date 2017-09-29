@@ -1,0 +1,6 @@
+{
+  "name": "book-share",
+  "dependencies": {
+    "materialize": "0.97.6"
+  }
+}
