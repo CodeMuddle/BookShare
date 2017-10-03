@@ -3,7 +3,9 @@ $roboto-font-path: '../assets/';
 
 // Materialize styles
 @import "materialize";
-
+html{
+    line-height: 0.5;
+}
 /*
     =======================
           INDEX-STYLE
@@ -55,3 +57,53 @@ $roboto-font-path: '../assets/';
 .blue-grey.darken-1 {
     background-color: #f56868 !important;
 }
+
+/*
+    =======================
+          DASHBOARD-STYLE
+    =======================
+*/
+.mysearch-bar{
+    
+    position: absolute;
+    top: 8px;
+    left: 400px;
+}
+.myCardImg{
+    height: 117px;
+    object-fit: cover;
+}
+
+.mycard-content{
+    padding: 0px !important;
+//    margin-left: 70px;
+}
+.success-icon i{
+    color: #6EFF6E;
+    font-size: 13px;
+}
+.unsucess-icon i{
+    color: #e00606;
+    font-size: 13px;
+    opacity: 10;
+}
+.mycard-content h5{
+    color: #c55757;
+}
+.dashboard-icon i{
+    color:#866a6a;
+    font-size: 42px !important;
+}
+.initals {
+    background-color: red;
+    width: 64px;
+    border-radius: 873px;
+}
+.initals a{
+    padding-left:22px;
+}
+
+.carousel-item img {
+    height: 150px;
+    width: 100px !important;
+}   
