@@ -1,59 +1,214 @@
 <html>
-    <head>
-        <title>dashboard</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <link rel="stylesheet" href="css/dashstyle.css">
-    </head>
-    <body>
-            <ul id="slide-out" class="side-nav">
-                    <li><div class="user-view">
-                      <div class="background">
-                        <img src="images/office.jpg">
-                      </div>
-                      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-                      <a href="#!name"><span class="white-text name">John Doe</span></a>
-                      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                    </div></li>
+
+<head>
+    <title>dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/dashstyle.css">
+</head>
+
+<body>
+        <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="images/office.jpg">
+                        </div>
+                        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+                        <a href="#!name"><span class="white-text name">John Doe</span></a>
+                        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                    </div>
+                </li>
                     <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
                     <li><a href="#!">Second Link</a></li>
                     <li><div class="divider"></div></li>
                     <li><a class="subheader">Subheader</a></li>
                     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-                  </ul>
-                  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            </ul>
+            
 
-     <h1>DashBoard</h1>
+    <!--********************Nav-Bar******************** -->
+    <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper">
+                    
+                <a href="#" data-activates="slide-out" class="btn-flat button-col"><i class="material-icons">menu</i></a>
 
-     <div class="carousel">
-        <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-        <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-        <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-        <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-        <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-      </div>
+            <a href="#!" class="brand-logo">
+                <span class="dashboard-icon"><i class="material-icons">dashboard</i></span>Dashboard
+            </a>
+
+            <!-- <div class="left select-label">
+                <div class="valign-wrapper">
+                    <input id="search"><i class="material-icons">search</i>
+                </div>
+            </div> -->
+
+            <!-- <div class="left col s3">
+                    <span class="material-icons left">search</span><input type="text" placeholder="Search">
+            </div> -->
+
+            <!-- <li class="search">
+                    <div class="search-wrapper card">
+                      <input id="search"><i class="material-icons">search</i>
+                      <div class="search-results"></div>
+                    </div>
+                  </li> -->
+
+
+          <ul class="right hide-on-med-and-down">
+            <!-- Dropdown Trigger -->
+            
+
+
+            <li>
+                <div class="initals">
+                    <a class="dropdown-button" href="#!" data-activates="dropdown1">AR</a>
+                </div>
+            </li>
+          </ul>
+
         
-    
+                <!-- <a href="#" class="btn button-collapse"><i class="material-icons">menu</i></a> -->
+        </div>
+      </nav>
+              
+    <!--********************Nav-Bar******************** -->
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+    <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="img/GOT.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="img/LOR.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="img/tgd.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="img/tsg.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="img/tsg.jpg"></a>
+    </div>
+    <div class="clearfix"></div>
 
-        <script>
-            $(document).ready(function(){
+    <div class="container" style="margin-top: -140px">
+            
+
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image myCardImg">
+                    <img src="img/GOT.jpg">
+                </div>
+                <div class="card-stacked mycard-stacked">
+                    <div class="card-content mycard-content">
+                        <div class="row">
+                            <div class="col s6">
+                                <h5>Book Name</h5>
+                                <p>Game Of Thrones</p>
+                            </div>
+                            <div class="col s6">
+                                <h5>Status</h5>
+                                <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image myCardImg">
+                    <img src="img/LOR.jpg">
+                </div>
+                <div class="card-stacked mycard-stacked">
+                    <div class="card-content mycard-content">
+                        <div class="row">
+                            <div class="col s6">
+                                <h5>Book Name</h5>
+                                <p>The Lord Of Rings</p>
+                            </div>
+                            <div class="col s6">
+                                <h5>Status</h5>
+                                <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image myCardImg">
+                    <img src="img/tgd.jpg">
+                </div>
+                <div class="card-stacked mycard-stacked">
+                    <div class="card-content mycard-content">
+                        <div class="row">
+                            <div class="col s6">
+                                <h5>Book Name</h5>
+                                <p>The God Delusion</p>
+                            </div>
+                            <div class="col s6">
+                                <h5>Status</h5>
+                                <p><span class="unsucess-icon"><i class="material-icons">lens</i></span> Unavailable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m7">
+                <div class="card horizontal">
+                    <div class="card-image myCardImg">
+                        <img src="img/tsg.jpg">
+                    </div>
+                    <div class="card-stacked mycard-stacked">
+                        <div class="card-content mycard-content">
+                            <div class="row">
+                                <div class="col s6">
+                                    <h5>Book Name</h5>
+                                    <p>The Selfish Gene</p>
+                                </div>
+                                <div class="col s6">
+                                    <h5>Status</h5>
+                                    <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="pagination center-align">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                  </ul>
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
                 $('.carousel').carousel({
                     dist:0,
                     shift:0,
-                    padding:20,
+                    padding:-175,
                 });
-            });
 
-             // Initialize collapse button
-            $(".button-collapse").sideNav();
+                 // Initialize collapse button
+            $(".button-col").sideNav();
             // Initialize collapsible (uncomment the line below if you use the dropdown variation)
             $('.collapsible').collapsible();
+            });
 
             
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
