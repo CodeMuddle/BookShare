@@ -1,0 +1,45 @@
+.myCardImg{
+    height: 117px;
+    width: 121px;
+}
+.mycard-stacked {
+    height: 100px;
+}
+
+.myCardImg img{
+    object-fit: cover;
+}
+.mycard-content{
+    margin-left: 70px;
+}
+.success-icon i{
+    color: #6EFF6E;
+    font-size: 13px;
+}
+.unsucess-icon i{
+    color: #e00606;
+    font-size: 13px;
+    opacity: 10;
+}
+.mycard-content h5{
+    color: #c55757;
+}
+.dashboard-icon i{
+    color:#866a6a;
+    font-size: 42px !important;
+}
+.initals {
+    background-color: red;
+    width: 64px;
+    border-radius: 873px;
+}
+.initals a{
+    padding-left:22px;
+}
+.myCardImg img {
+    height: 100%;
+}
+.carousel-item img {
+    height: 150px;
+    width: 100px !important;
+}
