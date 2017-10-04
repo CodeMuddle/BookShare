@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
   this.route('dashboard');
+  this.route('book',{path: '/book/:bookid'});
 });
 
 export default Router;
