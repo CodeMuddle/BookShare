@@ -108,3 +108,25 @@ html{
 .search-icon{
     
 }
+
+
+@media screen and (max-width:1024px){
+    .initals {
+        background-color: red;
+        width: 64px;
+        border-radius: 873px;
+        margin-right:50px;
+    }
+    
+}
+
+@media screen and (max-width:992px){
+    .initals {
+        
+        background-color: red;
+        width: 64px;
+        border-radius: 873px;
+        margin-right:18px;
+    }
+}
+
