@@ -1,0 +1,7 @@
+{{!-- {{yield}} --}}
+
+{{#if showErrors}}
+    {{#each errors as |error|}}
+        <p class="center-align" style="color: red;">{{error}}</p>
+    {{/each}}
+{{/if}}

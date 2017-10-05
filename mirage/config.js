@@ -23,4 +23,16 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
+
+  this.get('logins');
+  this.get('logins/:id');
+
+  this.get('logins/:id', function(schema, request){
+    return schema.logins.findBy({password: request.params.id});
+  });
+  
+  this.get('signups');
+  this.post('signups');
+
+  //this.get('logins/:id')
 }
