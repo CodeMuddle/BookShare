@@ -64,6 +64,17 @@ z-index:999 !important;
           DASHBOARD-STYLE
     =======================
 */
+.initals a:hover{
+    border-radius: 50px;
+    width: 65px;
+}
+.userimg{
+    height: 64px;
+    width: 64px;
+}
+.menu-icon i{
+    margin-top: -14px;
+}
 .myuser-view{
     background-image: url('http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg'); 
 }
