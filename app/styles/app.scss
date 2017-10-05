@@ -242,6 +242,25 @@ h4
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+.book-status {
+    background-color: #e6e4e2;
+    height: 66px;
+    width: 254px;
+}
+
+.book-status p {
+    font-size: 20px;
+    padding: 2px;
+    color: #0ed414;
+    float: left;
+    margin-left: 10px;
+}
+
+.book-status .success-icon i{
+    float: left;
+    font-size: 39px;
+    margin-top: 14px;
+}
 
 
 

@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('signup');
   this.route('dashboard');
   this.route('book',{path: '/book/:bookid'});
+  this.route('profile');
 });
 
 export default Router;

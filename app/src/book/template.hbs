@@ -5,28 +5,10 @@
             <div class="row">
                 <div class="col m4">
                     <div class="book-detail-img">
-                        <img class="materialboxed" src="https://images.gr-assets.com/books/1458743204l/21525975.jpg">
-                        <!-- Modal Trigger -->
-                        {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
-                        {{md-btn text='Status' action='modalfire'}}
-                        {{#if modalIsOpen}}
-                            {{#md-modal action="closeModal" }}
-                                    <div class="modal-content">
-                                    <h4>Book Request</h4>
-                                    <p>Oh hai there!</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                                        {{action 'agree'}}>
-                                        Agree
-                                    </a>
-                                    <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                                        {{action 'closeModal'}}>
-                                        Cancel
-                                    </a>
-                                </div>
-                            {{/md-modal}}
-                        {{/if}}
+                        <img class="materialboxed" src="https://images.gr-assets.com/books/1458743204l/21525975.jpg"> 
+                    </div>
+                    <div class="book-status">
+                       <span class="success-icon"><i class="material-icons">check_circle</i></span><p>Available</p> 
                     </div>
                 </div>
             <div class="col m8">    
@@ -41,6 +23,29 @@
             </div>
             </div>
         </div>
+        <!-- Modal Trigger -->
+    {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
+    {{md-btn text='Status' action='modalfire'}}
+    {{#if modalIsOpen}}
+        {{#md-modal action="closeModal" }}
+                <div class="modal-content">
+                    <div class="col m3">
+                        <h4>Book Status</h4>
+                        <p>Available</p>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                    {{action 'agree'}}>
+                    Agree
+                </a>
+                <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                    {{action 'closeModal'}}>
+                    Cancel
+                </a>
+            </div>
+        {{/md-modal}}
+    {{/if}}
 </div>
 </div>
     
