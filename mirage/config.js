@@ -35,4 +35,6 @@ export default function() {
   this.post('signups');
 
   //this.get('logins/:id')
+
+  this.get('dashboards');
 }

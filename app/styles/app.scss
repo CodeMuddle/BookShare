@@ -3,9 +3,7 @@ $roboto-font-path: '../assets/';
 
 // Materialize styles
 @import "materialize";
-html{
-    //line-height: 0.5;
-}
+
 /*
     =======================
           INDEX-STYLE
@@ -77,6 +75,7 @@ z-index:999 !important;
 
 .mycard-content{
     padding: 0px !important;
+    line-height: 0.5;
 //    margin-left: 70px;
 }
 .success-icon i{
@@ -234,4 +233,4 @@ h4
 }
 
 
-}
+

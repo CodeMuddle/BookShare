@@ -78,6 +78,12 @@ export default Ember.Controller.extend(EmberValidations, {
 
     showErrors: false,
 
+    fullName: Ember.computed('fname', 'lname', {
+        get(key) {
+            return `${this.get('fname')} ${this.get('lname')}`
+        }
+    }),
+
     actions: {
         createNew: function() {
             const name = this.get('fullName');
