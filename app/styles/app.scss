@@ -3,3 +3,234 @@ $roboto-font-path: '../assets/';
 
 // Materialize styles
 @import "materialize";
+
+/*
+    =======================
+          INDEX-STYLE
+    =======================
+*/
+.main-content{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: -99;
+    background-image: url('/assets/images/indexbg.jpg');
+    
+}
+.modal {
+z-index:999 !important;
+}
+.card-div{
+    margin-top:18%;
+    background-color: red;
+}
+
+#mycard-title {
+    font-size: 44px !important;
+    margin-bottom: 15px !important;
+}
+
+#mynav{
+    background-color: transparent;
+    box-shadow: none;
+    
+}
+
+#mynav-wrapper ul{
+    li{
+        a{
+            font-size: 22px;
+            margin-right: 25px;
+            background-color: #f74545;
+        } 
+    }
+} 
+
+#mynav-wrapper ul{
+    li{
+        padding: 15px;
+    }
+} 
+
+.blue-grey.darken-1 {
+    background-color: #f56868 !important;
+}
+
+/*
+    =======================
+          DASHBOARD-STYLE
+    =======================
+*/
+.myuser-view{
+    background-image: url('http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg'); 
+}
+
+.myCardImg{
+    height: 117px;
+    object-fit: cover;
+}
+
+.mycard-content{
+    padding: 0px !important;
+    line-height: 0.5;
+//    margin-left: 70px;
+}
+.success-icon i{
+    color: #6EFF6E;
+    font-size: 13px;
+}
+.unsucess-icon i{
+    color: #e00606;
+    font-size: 13px;
+    opacity: 10;
+}
+.mycard-content h5{
+    color: #c55757;
+}
+.dashboard-icon i{
+    color:#866a6a;
+    font-size: 42px !important;
+}
+.initals {
+    background-color: red;
+    width: 64px;
+    border-radius: 873px;
+}
+.initals a{
+    padding-left:22px;
+}
+
+.carousel-item img {
+    height: 150px;
+    width: 100px !important;
+}
+
+.margin-top-2 {
+    margin-top: 2rem !important;
+}
+
+.padding-2 {
+    padding: 2rem !important;
+}
+
+.margin-left-1 {
+    margin-left: 1rem;
+}
+
+.padding-top-2 {
+    padding-top: 2rem !important;
+}
+
+/*
+    =======================
+       BOOK-DETAIL-STYLE
+    =======================
+*/
+.card.horizontal .card-image img 
+{
+	max-width:80%;
+	margin-bottom: 10px;
+
+}
+.book-detail-img{
+    img{
+        width: 252px;
+        height: 380px;
+        margin-bottom: 10px;
+    }
+}
+h4
+{
+	font-family: 'Droid Sans', sans-serif;
+	color: #26a69a;
+}
+
+.modal.bottom-sheet
+{
+	width: 50%;
+	margin: 0 auto;
+	height:30%;
+}
+.md-select {
+  /*Demo css do not add to your project*/
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /*--*/
+  display: block;
+  margin: 10px 0 8px 0;
+  padding-bottom: 2px;
+  /*  position: relative;*/
+  min-width: 180px;
+}
+.md-select *, .md-select :after, .md-select :before {
+  box-sizing: border-box;
+}
+.md-select [type=button] {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-width: 0 0 1px 0;
+  color: rgba(0, 0, 0, 0.73);
+  cursor: default;
+  display: block;
+  line-height: 30px;
+  padding: 2px 0 1px 16px;
+  position: relative;
+  text-align: left;
+  text-shadow: none;
+  width: 60%;
+  z-index: 1;
+  outline: none;
+  overflow: hidden;
+}
+.md-select [type=button]:focus, .md-select [type=button]:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.md-select [type=button]:after {
+  content: '\25be';
+  float: right;
+  padding-right: 16px;
+}
+.md-select ul[role=listbox] {
+  background-color: white;
+  cursor: default;
+  list-style: none;
+  line-height: 26px;
+  overflow: hidden;
+  margin: 0;
+  max-height: 0;
+  position: absolute;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
+  width: 45%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+}
+.md-select ul[role=listbox] li {
+  height: 36px;
+  margin: 0;
+  padding: 10px 16px;
+  outline: none;
+  overflow: hidden;
+}
+.md-select ul[role=listbox] li:focus, .md-select ul[role=listbox] li:hover, .md-select ul[role=listbox] li.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+.md-select.active ul {
+  max-height: 160px;
+  overflow: auto;
+  padding: 8px 0 16px 0px;
+  z-index: 2;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+
+

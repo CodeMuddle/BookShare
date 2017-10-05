@@ -37,27 +37,25 @@
             <!--dropdown-->
      <br>       <!-- Dropdown Trigger -->
     Days 
-    <div class="md-select">
-
+  <div class="md-select">
   <label for="ul-id"><button type="button" class="ng-binding">Choose any</button></label>
   <ul role="listbox" id="ul-id" class="md-whiteframe-z1" aria-activedescendant="state2_AK" name="ul-id">
-    <li role="option"  class="ng-binding ng-scope active" tabindex="-1" aria-selected="true">1</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">2</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">3</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">4</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">5</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">6</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">7</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">8</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">9</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">10</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">11</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">12</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">13</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">14</li>
-    <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">15</li>
+  <li role="option"  class="ng-binding ng-scope active" tabindex="-1" aria-selected="true">1</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">2</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">3</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">4</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">5</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">6</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">7</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">8</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">9</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">10</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">11</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">12</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">13</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">14</li>
+  <li role="option"  class="ng-binding ng-scope" tabindex="-1" aria-selected="false">15</li>
   </ul>
-
 </div>
 
           </div>
@@ -77,6 +75,17 @@
       $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
+    //demo.js
+    $('.md-select').on('click', function(){
+      $(this).toggleClass('active')
+    });
+
+    $('.md-select ul li').on('click', function() {
+      var v = $(this).text();
+      $('.md-select ul li').not($(this)).removeClass('active');
+      $(this).addClass('active');
+      $('.md-select label button').text(v)
+    });
   });  
     </script>
   </body>
