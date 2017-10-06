@@ -36,5 +36,6 @@ export default function() {
 
   //this.get('logins/:id')
 
-  this.get('dashboards');
+  //this.get('dashboards');
+  this.get('books');
 }

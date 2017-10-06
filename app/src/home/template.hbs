@@ -4,12 +4,12 @@
          <div class="background">
                <img src="images/office.jpg">
          </div>
-         <a href="#!user"><img class="circle userimg" src="/assets/images/tom.jpg"></a>
+         <a href="#!user"><img class="circle" src="/assets/images/tom1.jpg"></a>
          <a href="#!name"><span class=" name">John Doe</span></a>
          <a href="#!email"><span class=" email">jdandturk@gmail.com</span></a>
       </div>
    </li>
-   <li><a href="#!">First Link With Icon</a></li>
+   <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
    <li><a href="#!">Second Link</a></li>
    <li><div class="divider"></div></li>
    <li><a class="subheader">Subheader</a></li>
@@ -18,8 +18,8 @@
 <!--********************Nav-Bar******************** -->
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-   <li><a href="#!">one</a></li>
-   <li><a href="#!">two</a></li>
+   <li>{{link-to 'Dashboard' 'home.dashboard'}}</li>
+   <li>{{link-to 'My Books' 'home.myBooks'}}</li>
    <li class="divider"></li>
    <li><a href="#!">three</a></li>
 </ul>
@@ -57,64 +57,16 @@
 </nav>
               
     <!--********************Nav-Bar-End******************** -->
+{{outlet}}
 
-    <div class="carousel">
-        {{#each model as |book|}}
-            <a class="carousel-item" href="#one!"><img src="{{book.imgurl}}"></a>
-        {{/each}}
-    </div>
-    <div class="clearfix"></div>
-    <div class="container" style="margin-top: -140px">
-       <!--*******************Book-List******************* -->
-       {{#each model as |book|}}
-        <div class="col s12 m7">
-            <div class="card horizontal">
-               <div class="card-content mycard-content">
-                  <div class="row">
-                     <div class="col s3">
-                        <img class="myCardImg" src="{{book.imgurl}}">
-                     </div>
-                        <div class="col s4">
-                           <h5>Book Name</h5>
-                           <p>{{book.name}}</p>
-                        </div>
-                        <div class="col s4">
-                           <h5>Status</h5>
-                           {{#if book.status}}
-                           <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
-                           {{else}}
-                            <p><span class="unsucess-icon"><i class="material-icons">lens</i></span> Unavailable</p>
-                            {{/if}}
-                        </div>
-                  </div>
-               </div>
-               <div class="clearfix"></div>
-            </div>
-        </div>
-        {{/each}}
-        <!--*******************Book-List-End******************* -->
-            <ul class="pagination center-align">
-               <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-               <li class="active"><a href="#!">1</a></li>
-               <li class="waves-effect"><a href="#!">2</a></li>
-               <li class="waves-effect"><a href="#!">3</a></li>
-               <li class="waves-effect"><a href="#!">4</a></li>
-               <li class="waves-effect"><a href="#!">5</a></li>
-               <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
-    </div>
-    <script>
+
+<script>
         $(document).ready(function(){
-                $('.carousel').carousel({
-                    dist:0,
-                    shift:0,
-                    padding:-175,
-                });
-
                  // Initialize collapse button
             $(".button-col").sideNav();
             // Initialize collapsible (uncomment the line below if you use the dropdown variation)
             $('.collapsible').collapsible();
             $(".dropdown-button").dropdown();
             }); 
-    </script>
+</script>
+

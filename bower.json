@@ -1,6 +1,7 @@
 {
   "name": "book-share",
   "dependencies": {
-    "materialize": "0.97.6"
+    "materialize": "0.97.6",
+    "jquery": "^3.2.1"
   }
 }
