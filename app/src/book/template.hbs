@@ -1,6 +1,5 @@
 <div class="container" >
       <div class="col s12 m7">
-        <h2 class="header">Book Details</h2>
         <div class="card horizontal">
             <div class="row">
                 <div class="col m4">
@@ -8,7 +7,11 @@
                         <img class="materialboxed" src="https://images.gr-assets.com/books/1458743204l/21525975.jpg"> 
                     </div>
                     <div class="book-status">
-                       <span class="success-icon"><i class="material-icons">check_circle</i></span><p>Available</p> 
+                       {{#if isAvailable}}
+                        <span class="success-icon"><i class="material-icons">check_circle</i><p>Available</p></span>
+                       {{else}}
+                        <span class="unsucess-icon"><i class="material-icons">close</i><p>Unavailable</p></span>
+                       {{/if}} 
                     </div>
                 </div>
             <div class="col m8">    
@@ -25,19 +28,26 @@
         </div>
         <!-- Modal Trigger -->
     {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
-    {{md-btn text='Status' action='modalfire'}}
+    {{#if isAvailable}}
+    {{md-btn text='Request' action='modalfire'}}
     {{#if modalIsOpen}}
         {{#md-modal action="closeModal" }}
                 <div class="modal-content">
                     <div class="col m3">
-                        <h4>Book Status</h4>
-                        <p>Available</p>
+                        <h4>Book Request</h4>
+                         <select class="browser-default">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">1 day</option>
+                            <option value="2">2 days</option>
+                            <option value="3">3 days</option>
+                            <option value="4">4 days</option>
+                        </select>
                     </div>
             </div>
             <div class="modal-footer">
                 <a class="modal-action modal-close waves-effect waves-green btn-flat"
                     {{action 'agree'}}>
-                    Agree
+                    Apply
                 </a>
                 <a class="modal-action modal-close waves-effect waves-green btn-flat"
                     {{action 'closeModal'}}>
@@ -45,6 +55,7 @@
                 </a>
             </div>
         {{/md-modal}}
+    {{/if}}
     {{/if}}
 </div>
 </div>

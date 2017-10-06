@@ -247,19 +247,34 @@ h4
     height: 66px;
     width: 254px;
 }
-
-.book-status p {
-    font-size: 20px;
-    padding: 2px;
-    color: #0ed414;
-    float: left;
-    margin-left: 10px;
-}
-
 .book-status .success-icon i{
     float: left;
     font-size: 39px;
     margin-top: 14px;
+}
+.book-status .success-icon p{
+    font-size: 20px;
+    padding: 2px;
+    color: #0ed414;
+    margin-top: 15px;
+    float: left;
+    
+}
+.book-status .unsucess-icon i{
+    float: left;
+    font-size: 39px;
+    margin-top: 14px;
+    opacity: 0.4;
+}
+
+.book-status .unsucess-icon p{
+    font-size: 20px;
+    padding: 2px;
+    color: #AC4C34;
+    margin-top: 15px;
+    float: left;
+    opacity: 0.4;
+    
 }
 
 
