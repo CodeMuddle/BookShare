@@ -6,5 +6,5 @@
 {{input id=propertyId value=(get changeset propertyId) type=propertyType class=(if (get changeset.error propertyId) 'validate invalid' 'validate')}}
 <label for={{propertyId}}>{{propertyLabel}}</label>
 {{#if (get changeset.error propertyId)}}
-    <span class="inline-error">{{ get (get (get changeset.error propertyId) 'validation') '0' }} </span>
+    <span id='error-{{propertyId}}' class="inline-error">{{ get (get (get changeset.error propertyId) 'validation') '0' }} </span>
 {{/if}}

@@ -65,3 +65,22 @@ test('Routing from Sign Up to Login', function(assert){
     });
   })
 });
+
+//Abhinav Test
+test('test-if-signup-works', function(assert) {
+  visit('/');
+  click("a#signup");
+
+  andThen(function() {
+    assert.equal(currentURL(),'/signup');
+  });
+});
+
+test('test-if-login-works', function(assert) {
+  visit('/');
+  click("a#login");
+
+  andThen(function() {
+    assert.equal(currentURL(),'/login');
+  });
+});
