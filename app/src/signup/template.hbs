@@ -39,62 +39,28 @@
                 <div class="card-content padding-2">
                     {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
                     
-                    <form>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">account_circle</i>
-                                {{input id="fname" value=fname type="text" class="validate" autofocus="autofocus"}}
-                                <label for="fname">First Name</label>
+                    {{#with (changeset model UserValidation) as |changeset|}}
+                        <form>
+                            <div class="row">
+                                {{inline-errors changeset=changeset class='col s6' icon='account_circle' propertyId='fname' propertyType='text' propertyLabel='First Name'}}
+
+                                {{inline-errors changeset=changeset class='col s6' propertyId='lname' propertyType='text' propertyLabel='Last Name'}}
+
+                                {{inline-errors changeset=changeset class='col s12' icon='account_circle' propertyId='username' propertyType='text' propertyLabel='Choose your username'}}
+
+                                {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Your Email Address'}}
+
+                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Create a Password'}}
+
+                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordIdConfirmation' propertyType='password' propertyLabel='Please enter the password again'}}
                             </div>
                             
-                            <div class="input-field col s6">
-                                {{input id="lname" value=lname type="text" class="validate"}}
-                                <label for="lname">Last Name</label>
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.fname showErrors=showErrors}}    
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.lname showErrors=showErrors}}    
-                            </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">account_circle</i>
-                                {{input id="username" value=username type="text" class="validate"}}
-                                <label for="username">Choose your username</label>
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.username showErrors=showErrors}}    
-                            </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">email</i>
-                                {{input id="emailAddress" value=emailAddress type="email" class="validate"}}
-                                <label for="emailAddress">Your email Address</label>
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.emailAddress showErrors=showErrors}}    
-                            </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">vpn_key</i>
-                                {{input id="passwordId" value=passwordId type="password" class="validate"}}
-                                <label for="passwordId">Create a password</label>
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.passwordId showErrors=showErrors}}    
-                            </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">vpn_key</i>
-                                {{input id="confirmPass" value=passwordIdConfirmation type="password" class="validate"}}
-                                <label for="confirmPass">Confirm your password</label>
-                            </div>
-                            {{!-- <div class="col s12">
-                                {{inline-errors errors=errors.passwordIdConfirmation showErrors=showErrors}}    
-                            </div> --}}
-                        </div>
-                        
-                        <button type="submit" id="signBtn" class="btn waves-effect waves-light {{if isDisabled 'disabled'}}" disabled={{isDisabled}} {{action 'createNew'}} >Submit
-                                <i class="material-icons right">send</i>
-                        </button>
-                    </form>
+                            <button type="submit" id="signBtn" class="btn waves-effect waves-light" {{action 'createNew' changeset}} >Submit
+                                    <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    {{/with}}
+                    
                     <div class="margin-top-2">
                         <p>Already Have an Account? {{#link-to 'login'}}Login{{/link-to}}</p>
                     </div>

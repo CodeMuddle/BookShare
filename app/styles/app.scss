@@ -21,7 +21,7 @@ $roboto-font-path: '../assets/';
     
 }
 .modal {
-z-index:999 !important;
+    z-index:999 !important;
 }
 .card-div{
     margin-top:18%;
@@ -133,6 +133,15 @@ z-index:999 !important;
 
 .padding-top-2 {
     padding-top: 2rem !important;
+}
+
+.inline-error {
+    display: block;
+    position: absolute;
+    top: 75%;
+    font-size: 75%;
+    right: 15px;
+    color: red;
 }
 
 /*

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    /* model: function() {
+    model() {
         return {
-            emailAddress: 'fxdfdfxdfxdf',
-            passwordId: '123456789'
+            emailAddress : '',
+            passwordId: '',
         }
-    } */
+    }
 });

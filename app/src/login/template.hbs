@@ -6,33 +6,24 @@
                 <div class="card-content padding-2">
                     {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
                     <h4>BookShare</h4>
-                    <form>
-                        <div class="margin-top-2">
-                            <h5>Sign In</h5>
-                        </div>
-                        <div class="row margin-top-2">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">email</i>
-                                {{input id="emailAddress" value=emailAddress type="email" class="validate" autofocus="autofocus"}}
-                                <label for="emailAddress">Email</label>
+                    <div class="margin-top-2">
+                        <h5>Sign In</h5>
+                    </div>
+
+                    {{#with (changeset model UserValidation) as |changeset|}}
+                        <form>
+                            <div class="row margin-top-2">
+                                {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Enter your Email ID'}}
+
+                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Enter your secret password'}}
                             </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.emailAddress showErrors=showErrors}}    
-                            </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">vpn_key</i>
-                                {{input id="passwordId" value=passwordId type="password" class="validate"}}
-                                <label for="password">Password</label>
-                            </div>
-                            <div class="col s12">
-                                {{inline-errors errors=errors.passwordId showErrors=showErrors}}
-                            </div>
-                        </div>
-                        
-                        <button id="loginBtn" type="submit" class="btn waves-effect waves-light {{if isDisabled 'disabled'}}" disabled={{isDisabled}} {{action 'validLogin'}} >Login
-                                <i class="material-icons right">send</i>
-                        </button>
-                    </form>
+                            
+                            <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validLogin' changeset}} >Login
+                                    <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    {{/with}}    
+                    
                     <div class="margin-top-2">
                         <p>New User? Come on {{#link-to 'signup'}}Sign Up{{/link-to}}</p>
                     </div>

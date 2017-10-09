@@ -1,7 +1,10 @@
 {{!-- {{yield}} --}}
 
-{{#if showErrors}}
-    {{#each errors as |error|}}
-        <p class="center-align" style="color: red;">{{error}}</p>
-    {{/each}}
+{{#if icon}}
+        <i class="material-icons prefix">{{icon}}</i>    
+{{/if}}
+{{input id=propertyId value=(get changeset propertyId) type=propertyType class=(if (get changeset.error propertyId) 'validate invalid' 'validate')}}
+<label for={{propertyId}}>{{propertyLabel}}</label>
+{{#if (get changeset.error propertyId)}}
+    <span class="inline-error">{{ get (get (get changeset.error propertyId) 'validation') '0' }} </span>
 {{/if}}
