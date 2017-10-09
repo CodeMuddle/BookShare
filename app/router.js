@@ -13,8 +13,11 @@ Router.map(function() {
   this.route('profile');
   this.route('home',  function() {
     this.route('dashboard');
-    this.route('myBooks');
+    this.route('myBooks', function() {
+      this.route('myBook',{path: '/:bookid'});
+    });
   });
+  this.route('myBooks');
 });
 
 export default Router;

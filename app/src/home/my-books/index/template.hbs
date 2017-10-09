@@ -1,0 +1,117 @@
+<div class="container">
+        <h2>My Books</h2>
+    </div>
+<!--my books-->
+    <div class="container">
+        {{#each model as |book|}}
+        {{debugger}}
+      <div class="divider"></div>
+        <div class="section">
+        <div class="row">
+            <div class="col s2 my-books"><img src="{{book.imgurl}}"></div>
+            <div class="col s8">
+                <h5>{{#link-to "home.myBooks.myBook" book.id class="book-title"}}{{book.name}}{{/link-to}}</h5>
+                <p>by {{book.author}}</p>
+                <span>{{book.description}}</span>
+            </div>
+            <div class="col s2">
+                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>&emsp;
+                <a class="btn-floating btn-small waves-effect waves-light red" {{action 'deleteModal'}}>
+                    <i class="material-icons">delete</i>
+                </a>
+                <!-- delete modal structure -->
+                        {{#if deleteModalIsOpen}}
+                            {{#md-modal}}
+                                    <div class="modal-content">
+                                    <h4>Please Confirm</h4>
+                                    <p>Are you sure you want to delete?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                        {{action 'delete'}}>
+                                        Delete
+                                    </a>
+                                    <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                        {{action 'closeModal'}}>
+                                        Cancel
+                                    </a>
+                                </div>
+                            {{/md-modal}}
+                        {{/if}}
+            </div>
+        </div>  
+    </div>
+    {{/each}}
+
+    
+    <!-- fixed floating action button-->
+    <div class="fixed-action-btn">
+    <a class="btn-floating btn-large" {{action 'addModal'}}>
+      <i class="large material-icons">add</i>
+    </a>
+    <!--add modal structure-->         
+                        {{#if modalIsOpen}}
+                            {{#md-modal}}
+                                    <div class="modal-content">
+                                    <h4>Add Book</h4>
+                                    <!--add-book-form-->
+                                    <div class="row">
+                                        <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s8">
+                                            <i class="material-icons prefix">title</i>
+                                            <input id="icon_prefix" type="text" class="validate">
+                                            <label for="icon_prefix">Title</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s8">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="icon_prefix" type="text" class="validate">
+                                        <label for="icon_prefix">Author</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s8">
+                                        <i class="material-icons prefix">description</i>
+                                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                        <label for="icon_prefix2">Description</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="file-field input-field col s8">
+                                            <i class="material-icons prefix">file_upload</i>
+                                            <input type="file">
+                                            <input class="file-path validate" type="text" id="file_upload">
+                                            <label for="file_upload">Upload Image</label>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                                    <!--add book form end-->
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                        {{action 'add'}}>
+                                        Add
+                                    </a>
+                                    <a class="modal-action modal-close waves-effect waves-red btn-flat"
+                                        {{action 'closeModal'}}>
+                                        Cancel
+                                    </a>
+                                </div>
+                            {{/md-modal}}
+                        {{/if}}
+    <!--modal demo end-->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+           

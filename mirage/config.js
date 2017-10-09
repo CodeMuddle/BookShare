@@ -38,4 +38,5 @@ export default function() {
 
   //this.get('dashboards');
   this.get('books');
+  this.get('books/:id');
 }
