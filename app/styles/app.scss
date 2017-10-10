@@ -64,10 +64,7 @@ $roboto-font-path: '../assets/';
           DASHBOARD-STYLE
     =======================
 */
-.initals a:hover{
-    border-radius: 50px;
-    width: 65px;
-}
+
 .userimg{
     height: 64px;
     width: 64px;
@@ -143,6 +140,7 @@ $roboto-font-path: '../assets/';
     right: 15px;
     color: red;
 }
+
 
 /*
     =======================
@@ -287,16 +285,16 @@ h4
 }
 
 //myBooks css
-.container
+.mybook-container
 {
 	background-color: #ffffff;
 }
-.container .row 
+.mybook-container .row 
 {
     margin-bottom: 0rem;
     margin-left: 0.5rem;
 }
-.row .my-books
+.mybook-container .row .my-books
 {
 	overflow: hidden;
 }
@@ -323,4 +321,21 @@ i.left {
 	background-color: #EE6E73;
 }
 
+//profile
+.profile-pic {
+    // width: 191px;
+    // height: 188px;
+}
+.username {
+    font-size: 19px !important;
+    margin-left: 17px;
+}
 
+//about section
+
+.about-table{
+    margin-left: 35px !important
+}
+span.table-head {
+    padding: 10px;
+}
