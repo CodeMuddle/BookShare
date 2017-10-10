@@ -22,5 +22,7 @@ testem.log
 bower.json.ember-try
 package.json.ember-try
 
+/.ember-cli
+
 /vendor
 .sonarlint

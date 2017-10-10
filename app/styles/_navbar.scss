@@ -1,0 +1,53 @@
+.nav-wrapper > .row {
+    position: relative;
+    height: 100%;
+}
+
+.nav-search-col.col {
+    height: 100%;
+    padding: 0;
+}
+
+.nav-search-col.col.active {
+    transition: 0.5s all;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.nav-search-col > .nav-search {
+    height: 100%;
+}
+
+#nav-dropdown {
+    /* 
+     * The materialize dropdown will try to override the width. 
+     * So, set this as important 
+     */
+    width: 200px!important;
+}
+
+.initials {
+    text-align: center;
+    background-color: #EE3333;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    line-height: 64px;
+    transition: all 0.5s;
+}
+
+.initials:hover {
+    background-color: #993333;
+}
+
+.initials > a {
+    padding: 0;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.initials > a:hover {
+    background-color: transparent;
+}

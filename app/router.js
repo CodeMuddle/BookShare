@@ -9,12 +9,12 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('signup');
-  this.route('book',{path: '/book/:bookid'});
+  this.route('book', {path: '/book/:bookid'});
   this.route('profile');
-  this.route('home',  function() {
+  this.route('home', function() {
     this.route('dashboard');
     this.route('myBooks', function() {
-      this.route('myBook',{path: '/:bookid'});
+      this.route('myBook', {path: '/:bookid'});
     });
   });
   this.route('myBooks');

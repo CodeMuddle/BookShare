@@ -1,0 +1,66 @@
+<ul id="slide-out" class="side-nav">
+   <li>
+      <div class="user-view myuser-view">
+         <div class="background">
+               <img src="images/office.jpg">
+         </div>
+         <a href="#!user"><img class="circle" src="/assets/images/tom1.jpg"></a>
+         <a href="#!name"><span class=" name">John Doe</span></a>
+         <a href="#!email"><span class=" email">jdandturk@gmail.com</span></a>
+      </div>
+   </li>
+   <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+   <li><a href="#!">Second Link</a></li>
+   <li><div class="divider"></div></li>
+   <li><a class="subheader">Subheader</a></li>
+   <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul>
+
+<!--********************Nav-Bar******************** -->
+<!-- Dropdown Structure -->
+<ul id="nav-dropdown" class="dropdown-content">
+   <li>{{link-to 'Dashboard' 'home.dashboard'}}</li>
+   <li>{{link-to 'My Books' 'home.myBooks'}}</li>
+   <li class="divider"></li>
+   <li><a href="#">Logout</a></li>
+</ul>
+<!-- Dropdown Structure-End -->
+<nav>
+   <div class="nav-wrapper">
+        <div class="row">
+            {{#unless searchIsActive}}
+            <div class="col s4">
+                <a href="#" data-activates="slide-out" class="btn-flat button-col">
+                    <span class="menu-icon"><i class="material-icons">menu</i></span>
+                </a>
+                {{#link-to 'index' class="brand-logo margin-left-1"}}BookShare{{/link-to}}
+            </div>
+            {{/unless}}
+
+            <div class="nav-search-col col s4 {{if searchIsActive 'active'}}">
+                <div class="nav-search input-field">
+                    {{input type="search" id="search" autocomplete="off" focus-in='activateSearch' focus-out='deactivateSearch'}}
+                    <label for="search" class="label-icon">
+                        <i class="material-icons">search</i>
+                    </label>                        
+                    <i class="material-icons">close</i>                        
+                </div>
+            </div>
+
+            {{#unless searchIsActive}}
+            <div class="col s4">
+                <ul class="right">
+                    <!-- Dropdown Trigger -->
+                    <li>
+                        <div class="initials">
+                            <a class="dropdown-button" href="#" data-activates="nav-dropdown">AR</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {{/unless}}
+        </div>
+   </div>
+</nav>              
+<!--********************Nav-Bar-End******************** -->
+{{outlet}}
