@@ -1,0 +1,47 @@
+<form >    
+    <div class="modal-content">
+        <h4>{{if editMode 'Edit Book' 'Add Book'}}</h4>
+        <!--add-book-form-->
+            <div class="row">
+                <div class="input-field col s8">
+                <i class="material-icons prefix">title</i>
+                {{input id="icon_prefix" type="text" value=model.name class="form-control validate"}}
+                <label for="icon_prefix" class={{labelClass}}>Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">account_circle</i>
+                    {{input id="icon_prefix1" type="text" value=model.author class="form-control validate"}}
+                    <label for="icon_prefix1" class={{labelClass}}>Author</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">description</i>
+                    {{textarea id="icon_prefix2" type="text" value=model.description class="form-control validate materialize-textarea"}}
+                    <label for="icon_prefix2" class={{labelClass}}>Description</label>
+                </div>
+            </div>
+            {{!-- <div class="row">
+                <div class="file-field input-field col s8">
+                    <i class="material-icons prefix">file_upload</i>
+                    {{input class="file-path validate" value=model.img type="file" accept="image/png,image/jpeg,image/jpg" id="file_upload"}}
+                    <input multiple="true" onchange={{action "upload"}} accept="image/png,image/jpeg,application/pdf" type="file"/>
+                    <label for="file_upload">Upload Image</label>
+                </div>
+            </div>   --}}
+        <!--add-book-form end-->              
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat"
+            {{action 'onUpdate'}}>
+            {{if editMode 'Edit' 'Add'}} 
+        </a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat"
+            {{action 'onClose'}}>
+            Cancel
+        </a>
+    </div>
+</form>
+{{yield}}

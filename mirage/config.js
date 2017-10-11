@@ -39,4 +39,19 @@ export default function() {
   //this.get('dashboards');
   this.get('books');
   this.get('books/:id');
+
+  this.del('books/:id', function(db,request)
+  {
+    var id = request.params.id;
+    let book = db.books.find(id);
+    return {};
+  });
+
+  this.post('books');
+
+  this.put('books/:id', function(schema, request) {
+    let base = JSON.parse(request.requestBody);
+    base.book.id = request.params.id;
+    return base;
+  });
 }
