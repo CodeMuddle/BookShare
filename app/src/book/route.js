@@ -1,10 +1,8 @@
 import Ember from 'ember';
-const { $ } = Ember;
 
 export default Ember.Route.extend({
-    
-
-    
-
-
+    model(params){
+       var dt = this.store.findRecord('book', params.bookid);
+       return dt;
+    }
 });

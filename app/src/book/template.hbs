@@ -1,13 +1,13 @@
-<div class="container" >
+    <div class="container" >
       <div class="col s12 m7">
         <div class="card horizontal">
             <div class="row">
                 <div class="col m4">
                     <div class="book-detail-img">
-                        <img class="materialboxed" src="https://images.gr-assets.com/books/1458743204l/21525975.jpg"> 
+                        <img class="materialboxed" src="{{model.imgurl}}"> 
                     </div>
                     <div class="book-status">
-                       {{#if isAvailable}}
+                       {{#if model.status}}
                         <span class="success-icon"><i class="material-icons">check_circle</i><p>Available</p></span>
                        {{else}}
                         <span class="unsucess-icon"><i class="material-icons">close</i><p>Unavailable</p></span>
@@ -18,9 +18,9 @@
             <div class="card-stacked book-details">
                 <div class="card-content">
                 <!--book details-->
-                <h4>Burning</h4>
-                <span style="color: #26a69a">by Danielle Rollins</span><br><br>
-                <p>After three years in juvie, Angela Davis is just a few months shy of release, and she'll finally be free from the hole that is Brunesfield Correctional Facility. Then Jessica arrives. Only ten years old and under the highest security possible, this girl has to be dangerous, even if no one knows what she did to land in juvie. As strange things begin happening to Angela and her friends that can only be traced to the new girl's arrival, it becomes clear that Brunesfield is no longer safe. They must find a way to get out, but how can they save themselves when the world has forgotten them?</p>
+                <h4>{{model.name}}</h4>
+                <span style="color: #26a69a">by {{model.author}}</span><br><br>
+                <p>{{model.description}}</p>
                 </div>
             </div>
             </div>
@@ -28,7 +28,7 @@
         </div>
         <!-- Modal Trigger -->
     {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
-    {{#if isAvailable}}
+    {{#if model.status}}
     {{md-btn text='Request' action='modalfire'}}
     {{#if modalIsOpen}}
         {{#md-modal action="closeModal" }}

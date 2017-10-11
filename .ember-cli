@@ -7,6 +7,6 @@
   */
   "disableAnalytics": false,
   "usePods": true,
-  "port": 4300,
+  "port": 4200,
   "live-reload-port": 49154
 }
