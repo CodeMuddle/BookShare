@@ -1,0 +1,60 @@
+.card.horizontal .card-image img 
+{
+	max-width:80%;
+	margin-bottom: 10px;
+
+}
+.book-detail-img{
+    img{
+        width: 252px;
+        height: 380px;
+        margin-bottom: 10px;
+    }
+}
+h4
+{
+	font-family: 'Droid Sans', sans-serif;
+	color: #26a69a;
+}
+
+.modal.bottom-sheet
+{
+	width: 50%;
+	margin: 0 auto;
+	height:30%;
+}
+
+.book-status {
+    background-color: #e6e4e2;
+    height: 66px;
+    width: 254px;
+}
+.book-status .success-icon i{
+    float: left;
+    font-size: 39px;
+    margin-top: 14px;
+}
+.book-status .success-icon p{
+    font-size: 20px;
+    padding: 2px;
+    color: #0ed414;
+    margin-top: 15px;
+    float: left;
+    
+}
+.book-status .unsucess-icon i{
+    float: left;
+    font-size: 39px;
+    margin-top: 14px;
+    opacity: 0.4;
+}
+
+.book-status .unsucess-icon p{
+    font-size: 20px;
+    padding: 2px;
+    color: #AC4C34;
+    margin-top: 15px;
+    float: left;
+    opacity: 0.4;
+    
+}

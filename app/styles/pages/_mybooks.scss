@@ -1,0 +1,35 @@
+.mybook-container
+{
+	background-color: #ffffff;
+}
+.mybook-container .row 
+{
+    margin-bottom: 0rem;
+    margin-left: 0.5rem;
+}
+.mybook-container .row .my-books
+{
+	overflow: hidden;
+}
+.my-books img
+{
+	max-width:70%;
+	height: auto;
+	display: block;
+}
+.my-books-details
+{
+	float: left;
+}
+.btn-flat
+{
+	text-transform: none;
+}
+i.left {
+    float: left;
+    margin-right: 8px;
+}
+.btn-floating
+{
+	background-color: #EE6E73;
+}
