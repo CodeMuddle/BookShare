@@ -1,34 +1,32 @@
-{{outlet}}
-<div class="container margin-top-2">
-    <div class="row">
-        <div class="col s6 offset-s3">
-            <div class="card">
-                <div class="card-content padding-2">
-                    {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
-                    <h4>BookShare</h4>
-                    <div class="margin-top-2">
-                        <h5>Sign In</h5>
-                    </div>
+<div class="content-wrap">
+    <div class="container margin-top-2">
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <div class="card">
+                    <div class="card-content padding-2">
+                        {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
+                        <h4>BookShare</h4>
 
-                    {{#with (changeset model UserValidation) as |changeset|}}
-                        <form>
-                            <div class="row margin-top-2">
-                                {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Enter your Email ID'}}
+                        {{#with (changeset model UserValidation) as |changeset|}}
+                            <form>
+                                <div class="row margin-top-2">
+                                    {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Enter your Email ID'}}
 
-                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Enter your secret password'}}
-                            </div>
-                            
-                            <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validLogin' changeset}} >Login
-                                    <i class="material-icons right">send</i>
-                            </button>
-                        </form>
-                    {{/with}}    
-                    
-                    <div class="margin-top-2">
-                        <p>New User? Come on {{#link-to 'signup'}}Sign Up{{/link-to}}</p>
+                                    {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Enter your secret password'}}
+                                </div>
+                                
+                                <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validLogin' changeset}} >Login
+                                        <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        {{/with}}    
+                        
+                        <div class="margin-top-2">
+                            <p>New User? Come on {{#link-to 'signup'}}Sign Up{{/link-to}}</p>
+                        </div>
                     </div>
-                </div>
-            </div>    
+                </div>    
+            </div>
         </div>
     </div>
 </div>

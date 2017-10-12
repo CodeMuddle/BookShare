@@ -36,10 +36,16 @@
     font-size: 42px !important;
 }
 
+#dashboard-carousel {
+    margin-top: -60px;
+    margin-bottom: 100px;
+    overflow: visible;
+}
 
 .carousel-item img {
-    height: 150px;
-    width: 100px !important;
+    width: 200px;
+    height: 335px;
+    object-fit: cover;
 }
 
 .margin-top-2 {

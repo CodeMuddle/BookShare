@@ -1,0 +1,49 @@
+.main-content{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: -99;
+    background-image: url('/assets/images/indexbg.jpg');
+    
+}
+.modal {
+    z-index:999 !important;
+}
+.card-div{
+    margin-top:18%;
+    background-color: red;
+}
+
+#mycard-title {
+    font-size: 44px !important;
+    margin-bottom: 15px !important;
+}
+
+#mynav{
+    background-color: transparent;
+    box-shadow: none;
+    
+}
+
+#mynav-wrapper ul{
+    li{
+        a{
+            font-size: 22px;
+            margin-right: 25px;
+            background-color: #f74545;
+        } 
+    }
+} 
+
+#mynav-wrapper ul{
+    li{
+        padding: 15px;
+    }
+} 
+
+.blue-grey.darken-1 {
+    background-color: #f56868 !important;
+}

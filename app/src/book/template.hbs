@@ -1,62 +1,64 @@
+<div class="content-wrap">
     <div class="container" >
-      <div class="col s12 m7">
-        <div class="card horizontal">
-            <div class="row">
-                <div class="col m4">
-                    <div class="book-detail-img">
-                        <img class="materialboxed" src="{{model.imgurl}}"> 
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="row">
+                    <div class="col m4">
+                        <div class="book-detail-img">
+                            <img class="materialboxed" src="{{model.imgurl}}"> 
+                        </div>
+                        <div class="book-status">
+                            {{#if model.status}}
+                            <span class="success-icon"><i class="material-icons">check_circle</i><p>Available</p></span>
+                            {{else}}
+                            <span class="unsucess-icon"><i class="material-icons">close</i><p>Unavailable</p></span>
+                            {{/if}} 
+                        </div>
                     </div>
-                    <div class="book-status">
-                       {{#if model.status}}
-                        <span class="success-icon"><i class="material-icons">check_circle</i><p>Available</p></span>
-                       {{else}}
-                        <span class="unsucess-icon"><i class="material-icons">close</i><p>Unavailable</p></span>
-                       {{/if}} 
+                    <div class="col m8">    
+                        <div class="card-stacked book-details">
+                            <div class="card-content">
+                                <!--book details-->
+                                <h4>{{model.name}}</h4>
+                                <span style="color: #26a69a">by {{model.author}}</span><br><br>
+                                <p>{{model.description}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            <div class="col m8">    
-            <div class="card-stacked book-details">
-                <div class="card-content">
-                <!--book details-->
-                <h4>{{model.name}}</h4>
-                <span style="color: #26a69a">by {{model.author}}</span><br><br>
-                <p>{{model.description}}</p>
-                </div>
             </div>
-            </div>
-            </div>
+            <!-- Modal Trigger -->
+            {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
+            {{#if model.status}}
+                {{md-btn text='Request' action='modalfire'}}
+                
+                {{#if modalIsOpen}}
+                    {{#md-modal action="closeModal" }}
+                            <div class="modal-content">
+                                <div class="col m3">
+                                    <h4>Book Request</h4>
+                                    <select class="browser-default">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="1">1 day</option>
+                                        <option value="2">2 days</option>
+                                        <option value="3">3 days</option>
+                                        <option value="4">4 days</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                {{action 'agree'}}>
+                                Apply
+                            </a>
+                            <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                {{action 'closeModal'}}>
+                                Cancel
+                            </a>
+                        </div>
+                    {{/md-modal}}
+                {{/if}}
+            {{/if}}
         </div>
-        <!-- Modal Trigger -->
-    {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
-    {{#if model.status}}
-    {{md-btn text='Request' action='modalfire'}}
-    {{#if modalIsOpen}}
-        {{#md-modal action="closeModal" }}
-                <div class="modal-content">
-                    <div class="col m3">
-                        <h4>Book Request</h4>
-                         <select class="browser-default">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">1 day</option>
-                            <option value="2">2 days</option>
-                            <option value="3">3 days</option>
-                            <option value="4">4 days</option>
-                        </select>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                    {{action 'agree'}}>
-                    Apply
-                </a>
-                <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                    {{action 'closeModal'}}>
-                    Cancel
-                </a>
-            </div>
-        {{/md-modal}}
-    {{/if}}
-    {{/if}}
+    </div>
 </div>
-</div>
-    
