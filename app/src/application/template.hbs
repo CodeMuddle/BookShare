@@ -1,5 +1,8 @@
 {{#unless hideNavBar}}
-    {{user-navbar loggedIn=userLoggedIn}}
+    {{user-navbar
+        loggedIn=userLoggedIn
+        onSearch='searchBook'
+    }}
 {{/unless}}
 
 {{outlet}}

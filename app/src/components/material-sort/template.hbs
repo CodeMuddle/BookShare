@@ -1,0 +1,16 @@
+{{#each fields as |field|}}
+    <a class="btn" {{action 'onSort' field}}>
+        <i class="material-icons right">
+            {{#if (eq field sortField)}}
+                {{#if (eq direction 'asc')}}
+                    {{iconAsc}}
+                {{else}}
+                    {{iconDesc}}
+                {{/if}}
+            {{else}}
+                {{iconNone}}
+            {{/if}}
+        </i>
+        {{field}}
+    </a>       
+{{/each}}

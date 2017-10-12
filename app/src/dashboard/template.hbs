@@ -2,35 +2,14 @@
     {{book-carousel books=model id="dashboard-carousel"}}
     <div class="clearfix"></div>
     <div class="container">
-    <!--*******************Book-List******************* -->
-    {{#each model as |book|}}
-        <div class="col s12 m7">
-            <div class="card horizontal">
-            <div class="card-content mycard-content">
-                <div class="row">
-                    <div class="col s3">
-                        <img class="myCardImg" src="{{book.imgurl}}">
-                    </div>
-                        <div class="col s4">
-                        <h5>Book Name</h5>
-                        <p>{{book.name}}</p>
-                        </div>
-                        <div class="col s4">
-                        <h5>Status</h5>
-                        {{#if book.status}}
-                        <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
-                        {{else}}
-                            <p><span class="unsucess-icon"><i class="material-icons">lens</i></span> Unavailable</p>
-                            {{/if}}
-                        </div>
-                </div>
+        <!--*******************Book-List******************* -->
+        {{#each model as |book|}}
+            <div class="col s12 m7">
+                {{book-card-wide book=book}}
             </div>
-            <div class="clearfix"></div>
-            </div>
-        </div>
         {{/each}}
         <!--*******************Book-List-End******************* -->
-            <ul class="pagination center-align">
+        <ul class="pagination center-align">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
             <li class="active"><a href="#!">1</a></li>
             <li class="waves-effect"><a href="#!">2</a></li>
@@ -38,6 +17,6 @@
             <li class="waves-effect"><a href="#!">4</a></li>
             <li class="waves-effect"><a href="#!">5</a></li>
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+        </ul>
     </div>
 </div>

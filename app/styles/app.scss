@@ -5,11 +5,14 @@ $roboto-font-path: '../assets/';
 @import "materialize";
 @import "_navbar";
 @import "_utils";
+@import "_spinkit.scss";
+
 @import "./pages/_dashboard.scss";
 @import "./pages/_bookdetail.scss";
 @import "./pages/_profile.scss";
 @import "./pages/_mybooks.scss";
 @import "./pages/_index.scss";
+@import "./pages/_books.scss";
 
 .content-wrap {
     padding: 30px 0;

@@ -24,6 +24,8 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
 
+  this.timing = 500;
+
   this.get('logins');
   this.get('logins/:id');
 

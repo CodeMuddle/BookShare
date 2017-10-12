@@ -16,9 +16,12 @@
 
 .mycard-content{
     padding: 0px !important;
-    line-height: 0.5;
-//    margin-left: 70px;
 }
+
+.mycard-content p {
+    margin-bottom: 5px!important;
+}
+
 .success-icon i{
     color: #6EFF6E;
     font-size: 13px;
