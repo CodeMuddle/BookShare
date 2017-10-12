@@ -1,55 +1,43 @@
-<div class="carousel">
-        {{#each model as |book|}}
-            <a class="carousel-item" href="#one!"><img src="{{book.imgurl}}"></a>
-        {{/each}}
-    </div>
+<div class="content-wrap">
+    {{book-carousel books=model id="dashboard-carousel"}}
     <div class="clearfix"></div>
-    <div class="container" style="margin-top: -140px">
-       <!--*******************Book-List******************* -->
-       {{#each model as |book|}}
+    <div class="container">
+    <!--*******************Book-List******************* -->
+    {{#each model as |book|}}
         <div class="col s12 m7">
             <div class="card horizontal">
-               <div class="card-content mycard-content">
-                  <div class="row">
-                     <div class="col s3">
+            <div class="card-content mycard-content">
+                <div class="row">
+                    <div class="col s3">
                         <img class="myCardImg" src="{{book.imgurl}}">
-                     </div>
+                    </div>
                         <div class="col s4">
-                           <h5>Book Name</h5>
-                           <p>{{book.name}}</p>
+                        <h5>Book Name</h5>
+                        <p>{{book.name}}</p>
                         </div>
                         <div class="col s4">
-                           <h5>Status</h5>
-                           {{#if book.status}}
-                           <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
-                           {{else}}
+                        <h5>Status</h5>
+                        {{#if book.status}}
+                        <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
+                        {{else}}
                             <p><span class="unsucess-icon"><i class="material-icons">lens</i></span> Unavailable</p>
                             {{/if}}
                         </div>
-                  </div>
-               </div>
-               <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
             </div>
         </div>
         {{/each}}
         <!--*******************Book-List-End******************* -->
             <ul class="pagination center-align">
-               <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-               <li class="active"><a href="#!">1</a></li>
-               <li class="waves-effect"><a href="#!">2</a></li>
-               <li class="waves-effect"><a href="#!">3</a></li>
-               <li class="waves-effect"><a href="#!">4</a></li>
-               <li class="waves-effect"><a href="#!">5</a></li>
-               <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
             </ul>
     </div>
-    <script>
-         $(document).ready(function(){
-                $('.carousel').carousel({
-                    dist:0,
-                    shift:0,
-                    padding:-175,
-                });
-            }); 
-    </script>
-
+</div>

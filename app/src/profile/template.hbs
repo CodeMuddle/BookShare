@@ -1,32 +1,24 @@
-<div class="container">
-     <div class="row">
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image profile-pic">
-              <img src="/assets/images/default-profile.jpg">
-            </div>
-            <span class="card-title username">@ARajopadhyaya</span>
-            <div class="card-action">
-             <a class="waves-effect waves-light btn">Edit Profile</a>
+<div class="content-wrap">
+  <div class="container">
+      <div class="row">
+          <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image profile-pic">
+                <img src="/assets/images/default-profile.jpg">
+              </div>
+              <span class="card-title username">@ARajopadhyaya</span>
+              <div class="card-action">
+              <a class="waves-effect waves-light btn">Edit Profile</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col s12 m9">
-          <ul class="tabs profile-tabs">
-            <li class="tab col s2">{{#link-to 'profile.about'}}About{{/link-to}}</li>
-            <li class="tab col s3"><a class="active" href="#test2">following</a></li>
-            <li class="tab col s3"><a href="#test3">Requested books</a></li>
-            <li class="tab col s3"><a href="#test4">Followers</a></li>
-          </ul>
-        </div>
-        {{outlet}}
-      </div> <!--Row-End -->
-  </div> <!--Container-End -->
-    
-
-
-<script type="text/javascript">
-   $(document).ready(function(){
-    $('ul.tabs').tabs();
-  });     
-</script>
+          
+          <div class="col s12 m9">
+            <div class="profile-sub-pages">
+              {{switcher-tabs class="profile-tabs" tabs=tabs}}
+              {{outlet}}
+            </div>
+          </div>
+        </div> <!--Row-End -->
+    </div> <!--Container-End -->
+</div>

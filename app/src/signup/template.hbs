@@ -1,40 +1,41 @@
-<div class="container">
-    <div class="row">
-        <div class="col s6 offset-s3">
-            <h4 class="center">Create Account</h4>
-            <div class="card">
-                <div class="card-content padding-2">
-                    {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
-                    
-                    {{#with (changeset model UserValidation) as |changeset|}}
-                        <form>
-                            <div class="row">
-                                {{inline-errors changeset=changeset class='col s6' icon='account_circle' propertyId='fname' propertyType='text' propertyLabel='First Name'}}
+<div class="content-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <h4 class="center">Create Account</h4>
+                <div class="card">
+                    <div class="card-content padding-2">
+                        {{!-- <img src="assets/images/bookshare.jpg" width="150px" alt="bookshare"> --}}
+                        
+                        {{#with (changeset model UserValidation) as |changeset|}}
+                            <form>
+                                <div class="row">
+                                    {{inline-errors changeset=changeset class='col s6' icon='account_circle' propertyId='fname' propertyType='text' propertyLabel='First Name'}}
 
-                                {{inline-errors changeset=changeset class='col s6' propertyId='lname' propertyType='text' propertyLabel='Last Name'}}
+                                    {{inline-errors changeset=changeset class='col s6' propertyId='lname' propertyType='text' propertyLabel='Last Name'}}
 
-                                {{inline-errors changeset=changeset class='col s12' icon='account_circle' propertyId='username' propertyType='text' propertyLabel='Choose your username'}}
+                                    {{inline-errors changeset=changeset class='col s12' icon='account_circle' propertyId='username' propertyType='text' propertyLabel='Choose your username'}}
 
-                                {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Your Email Address'}}
+                                    {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Your Email Address'}}
 
-                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Create a Password'}}
+                                    {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Create a Password'}}
 
-                                {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordIdConfirmation' propertyType='password' propertyLabel='Please enter the password again'}}
-                            </div>
-                            
-                            <button type="submit" id="signBtn" class="btn waves-effect waves-light" {{action 'createNew' changeset}} >Submit
+                                    {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordIdConfirmation' propertyType='password' propertyLabel='Please enter the password again'}}
+                                </div>
+                                
+                                <button type="submit" id="signBtn" class="btn waves-effect waves-light" {{action 'createNew' changeset}} >
                                     <i class="material-icons right">send</i>
-                            </button>
-                        </form>
-                    {{/with}}
-                    
-                    <div class="margin-top-2">
-                        <p>Already Have an Account? {{#link-to 'login'}}Login{{/link-to}}</p>
+                                    Create My Account
+                                </button>
+                            </form>
+                        {{/with}}
+                        
+                        <div class="margin-top-2">
+                            <p>Already Have an Account? {{#link-to 'login'}}Login{{/link-to}}</p>
+                        </div>
                     </div>
-                </div>
-            </div>    
+                </div>    
+            </div>
         </div>
     </div>
 </div>
-
-{{outlet}}
