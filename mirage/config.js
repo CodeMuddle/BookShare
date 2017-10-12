@@ -32,8 +32,8 @@ export default function() {
   });
   
   this.get('signups');
-  this.post('signups');
-
+  
+  this.passthrough('/signups', ['post']);
   //this.get('logins/:id')
 
   //this.get('dashboards');

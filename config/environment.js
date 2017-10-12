@@ -8,6 +8,23 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyDiweFBgOe35234NwFszlJ4cdfD6Dvj8GE",
+      authDomain: "booksharegarum.firebaseapp.com",
+      databaseURL: "https://booksharegarum.firebaseio.com",
+      projectId: "booksharegarum",
+      storageBucket: "booksharegarum.appspot.com",
+      messagingSenderId: "818058637597"
+    },
+
+    // if using ember-cli-content-security-policy 
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

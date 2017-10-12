@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
                         Materialize.toast('Login Successful', 10000, 'rounded');
                         this.set('emailAddress', '');
                         this.set('passwordId', '');
-                        this.transitionToRoute('home');
+                        this.transitionToRoute('dashboard');
                     }).catch((thikxaina) => {
                         console.log('Milena', thikxaina);
                         Materialize.toast('Incorrect User Credentials', 10000, 'rounded');
