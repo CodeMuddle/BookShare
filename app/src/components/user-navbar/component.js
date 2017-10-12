@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    query: '',
+
     init() {
         this._super(...arguments);
         this.set('searchIsActive', false);
@@ -21,6 +23,10 @@ export default Ember.Component.extend({
 
         deactivateSearch() {
             this.set('searchIsActive', false);
+        },
+
+        onSearch() {
+            this.sendAction('onSearch', this.get('query'));
         }
     }
 });

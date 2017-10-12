@@ -40,7 +40,7 @@
 
             <div class="nav-search-col col s4 {{if searchIsActive 'active'}}">
                 <div class="nav-search input-field">
-                    {{input type="search" id="search" autocomplete="off" focus-in='activateSearch' focus-out='deactivateSearch'}}
+                    {{input type="search" id="search" autocomplete="off" focus-in='activateSearch' value=query focus-out='deactivateSearch' action='onSearch'}}
                     <label for="search" class="label-icon">
                         <i class="material-icons">search</i>
                     </label>                        
