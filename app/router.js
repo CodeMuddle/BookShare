@@ -18,6 +18,7 @@ Router.map(function() {
     this.route('my');
   });
   this.route('settings');
+  this.route('notfound', { path: '/*path' });
 });
 
 export default Router;
