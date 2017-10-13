@@ -1,9 +1,42 @@
 <div class="container">
-    <h2>My Books</h2>
+    <div class="row margin-bottom-0">
+        <div class="col m4">
+            <h4>MY BOOKS</h4>
+        </div>
+        <div class="col m8">
+            {{material-pagination
+                class="right-align"
+                currentPage=meta.page
+                totalPages=meta.totalPages
+                onPageClick='setPage'
+            }}
+        </div>
+    </div>
+
+    <div class="row margin-bottom-0">
+        <div class="col m8">
+            {{material-sort 
+                fields=sortFields 
+                onSort='handleSort'
+                sortField=sort
+                direction=dir
+            }}
+        </div>
+        <div class="col m4">
+            {{md-input value=q label='Search' class='margin-top-0' action='filterSearch' validate=true}}
+        </div>
+    </div>
 </div>
+
 <!--my books-->
 <div class="container">
-    {{#each model as |book|}}
+    {{#model-query-list
+        model='book' 
+        loadingComponent='loader-stretch' 
+        onData='handleListLoaded'
+        query=searchQuery
+        debounce=300
+        as |book|}}
         <div class="divider"></div>
             <div class="section">
                 <div class="row">
@@ -22,7 +55,7 @@
                     </div>
                 </div>  
             </div>
-    {{/each}}
+    {{/model-query-list}}
 
     <!-- fixed floating action button-->
     <div class="fixed-action-btn">

@@ -1,22 +1,26 @@
 <div class="content-wrap">
-    {{book-carousel books=model id="dashboard-carousel"}}
+    {{book-carousel books=model.carouselBooks id="dashboard-carousel"}}
     <div class="clearfix"></div>
     <div class="container">
         <!--*******************Book-List******************* -->
-        {{#each model as |book|}}
-            <div class="col s12 m7">
+        {{#model-query-list 
+            class="row"
+            model='book' 
+            loadingComponent='loader-stretch' 
+            onData='handleListLoaded'
+            query=listQuery
+            as |book|}}
+            <div class="col s12 m6">
                 {{book-card-wide book=book}}
             </div>
-        {{/each}}
+        {{/model-query-list}}
         <!--*******************Book-List-End******************* -->
-        <ul class="pagination center-align">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
+        
+        {{material-pagination 
+            class="center-align"
+            totalPages=listMeta.totalPages
+            currentPage=listMeta.page
+            onPageClick='setPage'
+        }}
     </div>
 </div>

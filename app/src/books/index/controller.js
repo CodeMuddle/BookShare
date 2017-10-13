@@ -2,13 +2,31 @@ import Ember from 'ember';
 import { task } from 'ember-concurrency';
 
 export default Ember.Controller.extend({
-    queryParams: ['q', 'sort', 'dir', 'author', 'name'],
+    queryParams: ['q', 'sort', 'dir', 'author', 'name', 'page', 'limit'],
     q: '',
-    sort: 'title',
-    sortFields: ['title', 'author'],
+    sort: 'name',
+    dir: 'asc',
+    sortFields: ['name', 'author'],
     filterOpen: false,
+    page: 1,
+    limit: 20,
 
-    resultText: Ember.computed('q', 'author', 'title', function() {
+    searchQuery: Ember.computed('q', 'sort', 'dir', 'author', 'name', 'page', 'limit', function() {
+        //Use 'author' and/or 'book' if present
+        //Else, fall back to 'q'
+        let author = this.get('author');
+        let name = this.get('name');
+        
+        let queryFor = ['page', 'limit', 'sort', 'dir'];
+
+        if(author) queryFor.push('author');
+        if(name) queryFor.push('name');
+        if(!author && !name) queryFor.push('q');
+
+        return this.getProperties(queryFor);
+    }).readOnly(),
+
+    resultText: Ember.computed('q', 'author', 'name', function() {
         const author = this.get('author');
         const title = this.get('name');
         const q = this.get('q');
@@ -24,42 +42,33 @@ export default Ember.Controller.extend({
         } else {
             return `Please Enter a Valid Query`;
         }
-    }),
-
-    queryBooks: task(function *(ranFromFilter = false) {
-        //We dont want our query to change unless the search button
-        //in the filters section initiated the search
-        if(ranFromFilter) {
-            this.set('author', this.get('filterAuthor'));
-            this.set('name', this.get('filterName'));
-        }
-
-        let author = this.get('author');
-        let name = this.get('name');
-        
-        let queryFor = ['sort', 'dir'];
-        
-        if(author) queryFor.push('author');
-        if(name) queryFor.push('name');
-        if(!author && !name) queryFor.push('q');
-
-        let books = yield this.store.query('book', this.getProperties(queryFor));
-        this.set('model', books);
-    }).restartable(),
+    }).readOnly(),
 
     actions: {
         handleSort(field, dir) {
-            this.set('sort', field);
-            this.set('dir', dir);
-            this.get('queryBooks').perform();
+            this.setProperties({
+                'sort': field,
+                'dir': dir
+            });
+        },
+
+        setPage(page) {
+            this.set('page', page);
+        },
+
+        handleListLoaded(books) {
+            this.set('meta', books.get('meta'));
         },
 
         toggleFilter() {
             this.toggleProperty('filterOpen');
         },
 
-        performSearch() {
-            this.get('queryBooks').perform(true);
+        filterSearch() {
+            this.setProperties({
+                'author': this.get('filterAuthor'),
+                'name': this.get('filterName')
+            });
         }
     }
 });

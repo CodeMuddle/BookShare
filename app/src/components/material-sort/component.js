@@ -6,6 +6,9 @@ export default Ember.Component.extend({
     iconAsc: 'arrow_downward',
     iconDesc: 'arrow_upward',
     iconNone: 'list',
+    defaultDirection: 'asc',
+    
+    classNames: ['material-sort'],
 
     init() {
         this._super(...arguments);

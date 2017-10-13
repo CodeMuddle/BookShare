@@ -1,0 +1,17 @@
+<li class="{{if (lte currentPage 1) 'disabled'}}">
+    <a href="#!" {{action 'onPageClick' currentPage -1}}>
+        <i class="material-icons">chevron_left</i>
+    </a>
+</li>
+{{#unless lt totalPages 1}}
+    {{#each pageArray as |page|}}
+        <li class="{{if (eq page currentPage) 'active'}}">
+            <a href="#!" {{action 'onPageClick' page}}>{{page}}</a>
+        </li>
+    {{/each}}
+{{/unless}}
+<li class="{{if (gte currentPage totalPages) 'disabled'}}">
+    <a href="#!" {{action 'onPageClick' currentPage 1}}>
+        <i class="material-icons">chevron_right</i>
+    </a>
+</li>
