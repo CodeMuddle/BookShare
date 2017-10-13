@@ -42,12 +42,7 @@ export default function() {
   this.get('books');
   this.get('books/:id');
 
-  this.del('books/:id', function(db,request)
-  {
-    var id = request.params.id;
-    let book = db.books.find(id);
-    return {};
-  });
+  this.delete('books/:id');
 
   this.post('books');
 

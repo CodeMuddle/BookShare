@@ -1,8 +1,18 @@
 <div class="container">
-    {{#if resultText}}
-        <h4> {{resultText}} </h4>
-        <div class="divider"></div>
-    {{/if}}
+    <div class="row">
+        <div class="col m9">
+            {{#if resultText}}
+                <h4> {{resultText}} </h4>
+            {{/if}}
+        </div>
+        <div class="col m3 text-right">
+            <a class="btn indigo" {{action 'toggleFilter'}}>
+                <i class="material-icons left">filter_list</i> Filter
+            </a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
 
     <!--Options-->
     {{#if filterOpen}}
@@ -10,16 +20,16 @@
             {{#md-card-panel}}
                 <div class="row">
                     <div class="col s6">
-                        {{md-input value=filterName label='Book Title' action='performSearch' class="col s12" validate=true}}
+                        {{md-input value=filterName label='Book Title' action='filterSearch' class="col s12" validate=true}}
                     </div>
                     <div class="col s6">
-                        {{md-input value=filterAuthor label='Author' action='performSearch' class="col s12" validate=true}}
+                        {{md-input value=filterAuthor label='Author' action='filterSearch' class="col s12" validate=true}}
                     </div>
                     <div class="col s12 text-right">
                         <a class="btn" {{action 'toggleFilter'}}>
                             <i class="material-icons left">close</i> Close
                         </a>
-                        <a class="btn" onclick={{perform queryBooks true}}>
+                        <a class="btn" {{action 'filterSearch'}}>
                             <i class="material-icons left">search</i> Search
                         </a>
                     </div>
@@ -37,24 +47,26 @@
                     direction=dir
                 }}
             </div>
-            <div class="col m6 text-right">
-                <a class="btn indigo" {{action 'toggleFilter'}}>
-                    <i class="material-icons left">filter_list</i> Filter
-                </a>
+            <div class="col m6">
+                {{material-pagination
+                    class="right-align"
+                    currentPage=meta.page
+                    totalPages=meta.totalPages
+                    onPageClick='setPage'
+                }}
             </div>
         </div>
     </div>
     <!--/Options-->
-
-    <div class="row margin-top-2">
-        {{#if queryBooks.isRunning}}
-            {{loader-stretch message="Loading Books"}}
-        {{else}}
-            {{#each model as |book|}}
-                <div class="col s12 m6">
-                    {{book-card-wide book=book}}
-                </div>
-            {{/each}}
-        {{/if}}
-    </div>
+    {{#model-query-list 
+        class="row margin-top-2"
+        model='book'
+        loadingComponent='loader-stretch' 
+        onData='handleListLoaded'
+        query=searchQuery
+        as |book|}}
+        <div class="col s12 m6">
+            {{book-card-wide book=book}}
+        </div>
+    {{/model-query-list}}
 </div>

@@ -1,0 +1,11 @@
+{{#if queryItems.isRunning}}
+    {{#if loadingComponent}}
+        {{component loadingComponent}}
+    {{else}}
+        Loading...
+    {{/if}}
+{{else}}
+    {{#each items as |item|}}
+        {{yield item}}
+    {{/each}}
+{{/if}}
