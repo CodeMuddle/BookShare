@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     query: '',
+    loggedIn: false,
+    prevLoggedIn: null,
 
     init() {
         this._super(...arguments);
@@ -10,10 +12,19 @@ export default Ember.Component.extend({
 
     didRender() {
         this._super(...arguments);
-        this.$(".button-col").sideNav();
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        this.$('.collapsible').collapsible();
-        this.$(".dropdown-button").dropdown();
+        
+        //Redo jQuery initializations if loggedIn has changed
+        if(this.get('loggedIn') !== this.get('prevLoggedIn')) {
+            //Store loggedIn status
+            this.set('prevLoggedIn', this.get('loggedIn'));
+
+            if(this.get('loggedIn') === false) return;
+
+            this.$(".button-col").sideNav();
+            // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+            this.$('.collapsible').collapsible();
+            this.$(".dropdown-button").dropdown();
+        }
     },
 
     actions: {

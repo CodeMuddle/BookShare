@@ -29,14 +29,12 @@
 <nav>
    <div class="nav-wrapper">
         <div class="row">
-            {{#unless searchIsActive}}
-            <div class="col s4">
+            <div class="col s4" style={{if searchIsActive 'display: none'}}>
                 <a href="#" data-activates="slide-out" class="btn-flat button-col">
                     <span class="menu-icon"><i class="material-icons">menu</i></span>
                 </a>
                 {{#link-to 'index' class="brand-logo margin-left-1"}}BookShare{{/link-to}}
             </div>
-            {{/unless}}
 
             <div class="nav-search-col col s4 {{if searchIsActive 'active'}}">
                 <div class="nav-search input-field">
@@ -48,8 +46,7 @@
                 </div>
             </div>
 
-            {{#unless searchIsActive}}
-            <div class="col s4">
+            <div class="col s4" style={{if searchIsActive 'display: none'}}>
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li>
@@ -59,7 +56,6 @@
                     </li>
                 </ul>
             </div>
-            {{/unless}}
         </div>
    </div>
 </nav>              
