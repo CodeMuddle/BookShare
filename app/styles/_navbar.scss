@@ -1,3 +1,10 @@
+.nav-wrapper{
+    background-color:$navbar-color;
+}
+#index-nav-wrapper{
+    background: transparent;
+    box-shadow: none;
+}
 .nav-wrapper > .row {
     position: relative;
     height: 100%;
@@ -29,7 +36,7 @@
 
 .initials {
     text-align: center;
-    background-color: #EE3333;
+    background-color: $navbar-color;
     width: 64px;
     height: 64px;
     border-radius: 50%;
