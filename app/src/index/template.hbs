@@ -1,13 +1,3 @@
-{{#if session.isAuthenticated}}
-  <ul>
-    <li>Provider: {{session.data.authenticated.provider}}</li>
-    <li>token: {{session.data.authenticated.authorizationCode}}</li>
-  </ul>
-  <button {{action 'logout'}}>logout</button>
-{{else}}
-  <button {{action 'login'}}>login</button>
-{{/if}}
-
 <div class="main-content">
   <nav id="mynav">
     <div class="nav-wrapper" id="mynav-wrapper">

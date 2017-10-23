@@ -32,19 +32,6 @@ module.exports = function(environment) {
 
     torii: {
       sessionServiceName: 'session',
-      providers: {
-        'facebook-oauth2': {
-          apiKey: '125108934783035',
-          scope: 'user',
-          redirectUri: 'http://localhost:4200/dashboard'
-        },
-
-        'github-oauth2': {
-          apiKey: '9be299c77dbfd44a6420',
-          scope: 'user',
-          redirectUri: 'http://localhost:4200/dashboard' // default is /torii/redirect.html
-        }
-      }
     },
 
     EmberENV: {

@@ -26,12 +26,17 @@ export default function() {
 
   this.timing = 500;
 
-  this.get('logins');
+  /* this.get('logins');
   this.get('logins/:id');
 
   this.get('logins/:id', function(schema, request){
     return schema.logins.findBy({password: request.params.id});
-  });
+  }); */
+
+  this.passthrough('https://www.googleapis.com/**');
+  this.passthrough('https://securetoken.googleapis.com/**');
+
+  this.passthrough('/users');
   
   this.get('signups');
   
@@ -47,7 +52,8 @@ export default function() {
   this.post('books');
 
   this.put('books/:id', function(schema, request) {
-    let base = JSON.parse(request.requestBody);
+    const base = JSON.parse(request.requestBody);
+    //let base = JSON.parse(request.requestBody);
     base.book.id = request.params.id;
     return base;
   });
