@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     queryParams: ['page', 'limit', 'sort', 'dir', 'q'],
     modalIsOpen: false,
+    requestModalIsOpen:false,
     modelToEdit: null,
     sortFields: ['name', 'author', 'newest'],
     sort: 'name',
@@ -80,5 +81,8 @@ export default Ember.Controller.extend({
         {
             this.set('modalIsOpen', false);                
         },
+        toggleReqModal(){
+            this.toggleProperty('requestModalIsOpen');
+        }
     }
 });

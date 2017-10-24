@@ -35,15 +35,15 @@ export default function() {
 
   this.passthrough('https://www.googleapis.com/**');
   this.passthrough('https://securetoken.googleapis.com/**');
-
   this.passthrough('/users');
+  this.passthrough('/books');
   
   this.get('signups');
   
   this.passthrough('/signups', ['post']);
   //this.get('logins/:id')
 
-  //this.get('dashboards');
+  this.get('dashboards');
   this.get('books');
   this.get('books/:id');
 
@@ -52,9 +52,8 @@ export default function() {
   this.post('books');
 
   this.put('books/:id', function(schema, request) {
-    const base = JSON.parse(request.requestBody);
-    //let base = JSON.parse(request.requestBody);
-    base.book.id = request.params.id;
-    return base;
-  });
+     let base = JSON.parse(request.requestBody);
+     base.book.id = request.params.id;
+     return base;
+   });
 }
