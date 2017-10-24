@@ -1,5 +1,9 @@
 <div class="modal-content">
+    <span class="modal-cancel">
+      <i class="material-icons" {{action 'closeReqModal'}}>cancel</i>
+    </span>
     <div class="row">
+        {{#unless isAccept}}
         <div class="col s6">abhinabraj</div>
         <div class="col s3">
             <button class="waves-effect waves-light btn accept-btn" {{action 'acceptReq'}}>
@@ -11,6 +15,13 @@
                 Decline
             </button>
         </div>
+        {{else}}
+        <div class="col s12">
+            <span class="acceptReq">
+            <i class="material-icons">thumb_up</i>
+            your request is accepted for abhinabraj</span>  
+        </div>
+        {{/unless}}
     </div>
     <div class="divider"></div>
     

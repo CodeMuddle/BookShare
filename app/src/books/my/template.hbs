@@ -40,21 +40,23 @@
         <div class="divider"></div>
             <div class="section">
                 <div class="row">
-                    <div class="col s2 my-books"><img src="{{book.imgurl}}"></div>
+                    <div class="col s2 my-books">
+                          <img class="object-fit-cover" src="{{book.imgurl}}">  
+                    </div>
                     <div class="col s8">
                         <h5>{{link-to book.name 'book' book.id}}</h5>
                         <p>by {{book.author}}</p>
                     <span><p>{{book.description}}</p></span>
-                    {{#if book.requestby}}
+                    {{!-- {{#if book.requestby}} --}}
                         <span class="request-link">
                         Request available- <a {{action 'toggleReqModal'}}> view request</a>    
                         {{#if requestModalIsOpen}}
                             {{#md-modal close='closeModal' class="test-modal"}}
-                                {{request-modal}}
+                                {{request-modal onCloseClick='toggleReqModal'}}
                             {{/md-modal}}
                         {{/if}}
                         </span>
-                    {{/if}}
+                    {{!-- {{/if}} --}}
                     </div>
                     <div class="col s2">
                     <a class="btn-floating btn-small waves-effect waves-light blue"  {{action 'toggleModal' book}}>

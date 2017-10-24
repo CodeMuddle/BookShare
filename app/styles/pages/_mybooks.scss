@@ -36,6 +36,7 @@ i.left {
 .request-link{
 	a{
 		text-align: right;
+		cursor:pointer;
 	}
 }
 .accept-btn {
@@ -46,4 +47,19 @@ i.left {
 }
 .decline-btn:hover{
 	background-color: #fb7b7b;
+}
+.acceptReq {
+	color: #208f7f;
+}
+
+.acceptReq i {
+	color: #53fc53;
+	padding: 10px;
+}
+.modal-cancel {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	color: #ee6e73;
+	cursor:pointer;
 }
