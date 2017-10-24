@@ -26,10 +26,13 @@ export default Ember.Controller.extend({
                     .catch((reason) => {
                         let message;
                         if(reason && reason.code) {
-                            if(reason.code == 'auth/user-not-found') {
-                                message = 'Incorrect User Credentials';
-                            } else {
-                                message = 'Oops! An Unknown Error Occured!';
+                            switch(reason.code) {
+                                case 'auth/user-not-found':
+                                    message = 'Oops! It looks like that user does not exist'; break;
+                                case 'auth/wrong-password':
+                                    message = 'Oops! You entered the incorrect password for that account'; break;
+                                default:
+                                    message = 'Oops! An Unknown Error Occured!';
                             }
                         } else {
                             message = 'Sorry! We could not log you in. Please try again later';
