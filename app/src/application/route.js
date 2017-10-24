@@ -8,7 +8,7 @@ const LOGGED_OUT_DEFAULT = 'login';
 export default Ember.Route.extend({
     beforeModel(transition) {
         if(typeof this.get('session.isAuthenticated') === "undefined") {
-            return this.get('session').fetch();
+            return this.get('session').fetch().catch(() => {});
         }
     },
 

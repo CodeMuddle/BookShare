@@ -14,9 +14,9 @@
 
                                     {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Enter your secret password'}}
                                 </div>
-                                
-                                <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validLogin' changeset}} >Login
-                                        <i class="material-icons right">send</i>
+                                <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validateLogin' changeset}}>
+                                    Login
+                                    <i class="material-icons right">send</i>
                                 </button>
                             </form>
                         {{/with}}    
