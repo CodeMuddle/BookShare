@@ -15,8 +15,11 @@
 .card-div{
     margin-top:18%;
     background-color: red;
+    color: $theme-font-color;
 }
-
+.card-content {
+    color: $theme-font-color;
+}
 #mycard-title {
     font-size: 44px !important;
     margin-bottom: 15px !important;
@@ -33,7 +36,7 @@
         a{
             font-size: 22px;
             margin-right: 25px;
-            background-color: #f74545;
+            background-color: $theme-color;
         } 
     }
 } 
@@ -45,5 +48,5 @@
 } 
 
 .blue-grey.darken-1 {
-    background-color: #f56868 !important;
+    background-color: $theme-color !important;
 }
