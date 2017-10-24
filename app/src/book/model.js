@@ -8,6 +8,9 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     isAvailable: DS.attr('boolean'),
     isBorrowed: DS.attr('boolean'),
+    userId: DS.attr('string'),
+    createdTime: DS.attr('string'),
+    modifiedTime: DS.attr('string')
 })
 .reopen({
     imgurl: computed('imageURL', {
