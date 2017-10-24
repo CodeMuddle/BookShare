@@ -44,7 +44,17 @@
                     <div class="col s8">
                         <h5>{{link-to book.name 'book' book.id}}</h5>
                         <p>by {{book.author}}</p>
-                    <span>{{book.description}}</span>
+                    <span><p>{{book.description}}</p></span>
+                    {{#if book.requestby}}
+                        <span class="request-link">
+                        Request available- <a {{action 'toggleReqModal'}}> view request</a>    
+                        {{#if requestModalIsOpen}}
+                            {{#md-modal close='closeModal' class="test-modal"}}
+                                {{request-modal}}
+                            {{/md-modal}}
+                        {{/if}}
+                        </span>
+                    {{/if}}
                     </div>
                     <div class="col s2">
                     <a class="btn-floating btn-small waves-effect waves-light blue"  {{action 'toggleModal' book}}>

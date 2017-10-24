@@ -38,19 +38,19 @@ export default function() {
   this.passthrough('/signups', ['post']);
   //this.get('logins/:id')
 
-  //this.get('dashboards');
-  //this.get('books');
-  //this.get('books/:id');
+  this.get('dashboards');
+  this.get('books');
+  this.get('books/:id');
 
-  //this.delete('books/:id');
+  this.delete('books/:id');
 
-  //this.post('books');
+  this.post('books');
 
-  this.passthrough('/books');
+  //this.passthrough('/books');
 
-  // this.put('books/:id', function(schema, request) {
-  //   let base = JSON.parse(request.requestBody);
-  //   base.book.id = request.params.id;
-  //   return base;
-  // });
+   this.put('books/:id', function(schema, request) {
+     let base = JSON.parse(request.requestBody);
+     base.book.id = request.params.id;
+     return base;
+   });
 }

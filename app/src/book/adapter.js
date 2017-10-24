@@ -1,9 +1,9 @@
+ import DS from 'ember-data';   
 //import ApplicationAdapter from './application';
-import FirebaseAdapter from 'emberfire/adapters/firebase';
+//import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-/* export default ApplicationAdapter.extend({
+ export default DS.RESTAdapter.extend({
 });
- */
-
-export default FirebaseAdapter.extend({
-});
+ 
+// export default FirebaseAdapter.extend({
+// });
