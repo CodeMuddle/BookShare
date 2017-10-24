@@ -9,15 +9,15 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('signup');
-  this.route('book', {path: '/book/:bookid'});
-  this.route('profile', function() {
+  this.authenticatedRoute('book', {path: '/book/:bookid'});
+  this.authenticatedRoute('profile', function() {
     this.route('about');
   });
-  this.route('dashboard');
-  this.route('books', function() {
+  this.authenticatedRoute('dashboard');
+  this.authenticatedRoute('books', function() {
     this.route('my');
   });
-  this.route('settings');
+  this.authenticatedRoute('settings');
   this.route('notfound', { path: '/*path' });
 });
 

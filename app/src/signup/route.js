@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import Changeset from 'ember-changeset';
+import UnauthenticatedRouteMixin from 'book-share/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     model() {
         return {
             fname : '',
