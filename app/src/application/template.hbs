@@ -1,14 +1,9 @@
-{{#if session.isAuthenticated}}
-    <button {{action 'logout'}}>Logout</button>
-{{/if}}
-
 {{#unless hideNavBar}}
     {{user-navbar
-        loggedIn=userLoggedIn
+        loggedIn=session.isAuthenticated
         onSearch='searchBook'
+        onLogout='logout'
     }}
 {{/unless}}
-
-
 
 {{outlet}}

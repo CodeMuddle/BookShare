@@ -38,6 +38,10 @@ export default Ember.Component.extend({
 
         onSearch() {
             this.sendAction('onSearch', this.get('query'));
+        },
+
+        onLogout() {
+            this.sendAction('onLogout');
         }
     }
 });

@@ -47,7 +47,8 @@ export default Ember.Controller.extend({
                 if(this.get('flagSet') && this.get('email') && this.get('username')) {
                     const ref = this.get('firebaseApp').auth();
 
-                    ref.createUserWithEmailAndPassword(this.get('email'), this.get('passwordId')).then((userData) => {
+                    ref.createUserWithEmailAndPassword(this.get('email'), this.get('passwordId'))
+                    .then((userData) => {
                         var user = this.store.createRecord('user', {
                             id: userData.uid,
                             firstName: this.get('fname'),
@@ -56,15 +57,15 @@ export default Ember.Controller.extend({
                             email: this.get('email'),
                         });
 
-                        user.save().then(() => {
-                            console.log('User created');
-                            Materialize.toast('User Created Successful', 3000, 'rounded');
-                            this.transitionToRoute('login');
-                        })
+                        return user.save();
+                    }).then(() => {
+                        console.log('User created');
+                        Materialize.toast('User Created Successful', 3000, 'rounded');
+                        this.transitionToRoute('login');
                     }).catch((error) => {
                         Materialize.toast('Sorry!!! User Creation Unsuccessful', 3000, 'rounded');
                         console.log('Error', error);
-                    })
+                    });
                 }
                 
             }
