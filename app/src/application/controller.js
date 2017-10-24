@@ -6,9 +6,18 @@ export default Ember.Controller.extend({
 
     actions: {
         searchBook(query) {
-            if(!query) return;
+            if(!query) {
+                return;
+            }
+            
             this.transitionToRoute('books.index', {
                 queryParams: {q: query}
+            });
+        },
+
+        logout() {
+            this.get('session').close().then(() => {
+                this.transitionToRoute('index');
             });
         }
     }

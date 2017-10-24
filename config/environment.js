@@ -20,9 +20,18 @@ module.exports = function(environment) {
 
     // if using ember-cli-content-security-policy 
     contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' apis.google.com",
       'frame-src': "'self' https://*.firebaseapp.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com 'none'",
+      'default-src': "'none'",
+      'font-src': "'self'",
+      'img-src': "'self'",
+      'report-uri':"'localhost'",
+      'style-src': "'self' 'unsafe-inline'",
+    },
+
+    torii: {
+      sessionServiceName: 'session',
     },
 
     EmberENV: {
