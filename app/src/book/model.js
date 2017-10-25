@@ -9,7 +9,8 @@ export default DS.Model.extend({
     user: DS.belongsTo('user', {async: true, inverse: null}),
     createdTime: DS.attr('string'),
     modifiedTime: DS.attr('string'),
-    status: DS.belongsTo('book-status', {async: true, inverse: 'book'})
+    status: DS.belongsTo('book-status', {async: false, inverse: null}),
+    sta: DS.attr('')
 })
 .reopen({
     imgurl: computed('imageURL', {

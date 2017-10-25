@@ -19,7 +19,7 @@ export default Ember.Component.extend({
                     name: "",
                     author: "",
                     description: "",
-                    imageURL: ""
+                    imageURL: "",
                 },
                 status: {
                     isAvailable: true
@@ -27,13 +27,11 @@ export default Ember.Component.extend({
             });
             this.set('loading', false);
         } else {
-            this.get('model').get('status').then((status) => {
-                this.set('dataModel', {
-                    book: Object.assign({}, this.get('model').data),
-                    status: Object.assign({}, status.data)
-                });
-                this.set('loading', false);
-            })
+            this.set('dataModel', {
+                book: Object.assign({}, this.get('model').data),
+                status: Object.assign({}, this.get('model.status').data)
+            });
+            this.set('loading', false);
         }
     },
 

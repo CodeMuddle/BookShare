@@ -44,9 +44,9 @@ export default Ember.Controller.extend({
                 book.modifiedTime = Math.floor(Date.now()/1000);
                 modelToEdit.setProperties(book);
                 
-                promise = modelToEdit.get('status')
-                    .then((_status) => {_status.setProperties(status); return _status.save()})   
-                    .then(() => {return modelToEdit.save()});
+                modelToEdit.get('status').setProperties(status);
+
+                promise = modelToEdit.save();
             } else {
                 status.isBorrowed = false;
                 let bookStatus = this.store.createRecord('book-status', status);
@@ -57,9 +57,9 @@ export default Ember.Controller.extend({
                 let bookRecord = this.store.createRecord('book', book);
                 bookRecord.set('user', this.get('userSession.user'));
                 bookRecord.set('status', bookStatus);
+
                 //bookStatus.set('book', bookRecord);
-                promise = bookStatus.save()
-                    .then(() => {return bookRecord.save();});
+                promise = bookRecord.save();
             }
  
             promise.then((data) => {
