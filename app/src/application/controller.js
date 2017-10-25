@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
         logout() {
             this.get('session').close().then(() => {
                 //var self = this;
-                this.get('user-session').clearDetails();
+                this.get('user-session').clearUser();
                 this.transitionToRoute('index');
             });
         }

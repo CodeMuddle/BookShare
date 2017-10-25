@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    userSession: Ember.inject.service(),
+
     queryParams: ['page', 'limit', 'sort', 'dir', 'q'],
     modalIsOpen: false,
     requestModalIsOpen:false,
@@ -32,15 +34,34 @@ export default Ember.Controller.extend({
             this.set('meta', books.get('meta'));
         },
 
-        saveBook(book) {
+        saveBook(bookData) {
+            let book = bookData.book;
+            let status = bookData.status;
             let promise;
             if(this.get('isInEditMode')) {
-                this.get('modelToEdit').setProperties(book);
-                promise = this.get('modelToEdit').save();
-            } else {
-                promise = this.store.createRecord('book', book).save();
-            }
+                const modelToEdit = this.get('modelToEdit');
 
+                book.modifiedTime = Math.floor(Date.now()/1000);
+                modelToEdit.setProperties(book);
+                
+                promise = modelToEdit.get('status')
+                    .then((_status) => {_status.setProperties(status); return _status.save()})   
+                    .then(() => {return modelToEdit.save()});
+            } else {
+                status.isBorrowed = false;
+                let bookStatus = this.store.createRecord('book-status', status);
+
+                book.createdTime = Math.floor(Date.now()/1000);
+                book.modifiedTime = book.createdTime;
+
+                let bookRecord = this.store.createRecord('book', book);
+                bookRecord.set('user', this.get('userSession.user'));
+                bookRecord.set('status', bookStatus);
+                //bookStatus.set('book', bookRecord);
+                promise = bookStatus.save()
+                    .then(() => {return bookRecord.save();});
+            }
+ 
             promise.then((data) => {
                 Materialize.toast("Your book was saved successfully!!", 2000);
                 this.set("modalIsOpen", false);
@@ -71,7 +92,10 @@ export default Ember.Controller.extend({
                 confirmButtonColor: "#ec6c62"
             },
             function() {
-                currentBook.destroyRecord().then(() => {
+                currentBook.get('status')
+                .then((status) => {return status.destroyRecord()})
+                .then(currentBook.destroyRecord())
+                .then(() => {
                     Materialize.toast('Deleted', 3000);
                 });
             });

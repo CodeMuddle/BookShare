@@ -6,11 +6,10 @@ export default DS.Model.extend({
     name: DS.attr('string'),
     author: DS.attr('string'),
     description: DS.attr('string'),
-    isAvailable: DS.attr('boolean'),
-    isBorrowed: DS.attr('boolean'),
-    userId: DS.attr('string'),
+    user: DS.belongsTo('user', {async: true, inverse: null}),
     createdTime: DS.attr('string'),
-    modifiedTime: DS.attr('string')
+    modifiedTime: DS.attr('string'),
+    status: DS.belongsTo('book-status', {async: true, inverse: 'book'})
 })
 .reopen({
     imgurl: computed('imageURL', {

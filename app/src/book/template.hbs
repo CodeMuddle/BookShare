@@ -8,7 +8,7 @@
                             <img class="materialboxed object-fit-cover" src="{{model.imgurl}}"> 
                         </div>
                         <div class="book-status">
-                            {{#if model.status}}
+                            {{#if model.status.isAvailable}}
                             <span class="success-icon"><i class="material-icons">check_circle</i><p>Available</p></span>
                             {{else}}
                             <span class="unsucess-icon"><i class="material-icons">close</i><p>Unavailable</p></span>

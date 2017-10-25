@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
                     })
                     .then(() => {
                         return this.store.findRecord('user', this.get('session.uid')).then((content) => {
-                            this.get('user-session').setDetails(content.data);
+                            this.get('user-session').setUser(content);
                         }).then(() => {
                             console.log('data ayo', this.get('user-session.details'));
                             Materialize.toast('Login Successful', 3000, 'rounded');
