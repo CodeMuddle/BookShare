@@ -3,6 +3,7 @@ import UserValidation from '../../validations/userlogin';
 
 export default Ember.Controller.extend({
     UserValidation,
+    user: Ember.inject.service(),
 
     actions: {
         validateLogin: function(changeset) {
@@ -17,7 +18,7 @@ export default Ember.Controller.extend({
                         email: changeset.get('emailAddress'),
                         password: changeset.get('passwordId')
                     })
-                    .then(() => {
+                    .then((data) => {
                         Materialize.toast('Login Successful', 3000, 'rounded');
                         changeset.set('emailAddress', '');
                         changeset.set('passwordId', '');
