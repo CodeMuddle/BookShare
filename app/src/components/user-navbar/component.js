@@ -4,6 +4,7 @@ export default Ember.Component.extend({
     query: '',
     loggedIn: false,
     prevLoggedIn: null,
+    user: Ember.inject.service(),
 
     init() {
         this._super(...arguments);

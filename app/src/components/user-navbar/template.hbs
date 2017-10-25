@@ -5,9 +5,9 @@
          <div class="background">
                <img src="assets/images/office.jpg">
          </div>
-         <a href="#!user"><img class="circle" src="assets/images/tom1.jpg"></a>
-         <a href="#!name"><span class=" name">John Doe</span></a>
-         <a href="#!email"><span class=" email">jdandturk@gmail.com</span></a>
+         <a href="#!user"><img class="circle" src="/assets/images/tom1.jpg"></a>
+         <a href="#!name"><span class=" name">{{user.detail.firstName}} {{user.detail.lastName}}</span></a>
+         <a href="#!email"><span class=" email">{{user.detail.email}}</span></a>
       </div>
    </li>
    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
@@ -52,7 +52,7 @@
                     <!-- Dropdown Trigger -->
                     <li>
                         <div class="initials">
-                            <a class="dropdown-button" href="#" data-activates="nav-dropdown">AR</a>
+                            <a class="dropdown-button" href="#" data-activates="nav-dropdown">{{initial user.detail.firstName}}{{initial user.detail.lastName}}</a>
                         </div>
                     </li>
                 </ul>
