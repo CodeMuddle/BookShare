@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    'user-session': Ember.inject.service(),
     hideNavBar: false,
 
     actions: {
@@ -16,6 +17,8 @@ export default Ember.Controller.extend({
 
         logout() {
             this.get('session').close().then(() => {
+                //var self = this;
+                this.get('user-session').clearDetails();
                 this.transitionToRoute('index');
             });
         }

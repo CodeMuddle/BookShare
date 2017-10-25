@@ -3,7 +3,7 @@ import UserValidation from '../../validations/userlogin';
 
 export default Ember.Controller.extend({
     UserValidation,
-    user: Ember.inject.service(),
+    'user-session': Ember.inject.service(),
 
     actions: {
         validateLogin: function(changeset) {
@@ -18,12 +18,18 @@ export default Ember.Controller.extend({
                         email: changeset.get('emailAddress'),
                         password: changeset.get('passwordId')
                     })
-                    .then((data) => {
-                        Materialize.toast('Login Successful', 3000, 'rounded');
-                        changeset.set('emailAddress', '');
-                        changeset.set('passwordId', '');
-                        this.transitionToRoute('dashboard');
+                    .then(() => {
+                        return this.store.findRecord('user', this.get('session.uid')).then((content) => {
+                            this.get('user-session').setDetails(content.data);
+                        }).then(() => {
+                            console.log('data ayo', this.get('user-session.details'));
+                            Materialize.toast('Login Successful', 3000, 'rounded');
+                            changeset.set('emailAddress', '');
+                            changeset.set('passwordId', '');
+                            this.transitionToRoute('dashboard');
+                        })
                     })
+                    
                     .catch((reason) => {
                         let message;
                         if(reason && reason.code) {

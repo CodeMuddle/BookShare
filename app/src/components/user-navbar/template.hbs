@@ -1,4 +1,4 @@
-{{#if loggedIn}}
+{{#if session.isAuthenticated}}
 <ul id="slide-out" class="side-nav">
    <li>
       <div class="user-view myuser-view">
@@ -6,8 +6,8 @@
                <img src="images/office.jpg">
          </div>
          <a href="#!user"><img class="circle" src="/assets/images/tom1.jpg"></a>
-         <a href="#!name"><span class=" name">{{user.detail.firstName}} {{user.detail.lastName}}</span></a>
-         <a href="#!email"><span class=" email">{{user.detail.email}}</span></a>
+         <a href="#!name"><span class=" name">{{userSession.detail.firstName}} {{userSession.detail.lastName}}</span></a>
+         <a href="#!email"><span class=" email">{{userSession.detail.email}}</span></a>
       </div>
    </li>
    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
@@ -52,7 +52,9 @@
                     <!-- Dropdown Trigger -->
                     <li>
                         <div class="initials">
-                            <a class="dropdown-button" href="#" data-activates="nav-dropdown">{{initial user.detail.firstName}}{{initial user.detail.lastName}}</a>
+                            <a class="dropdown-button" href="#" data-activates="nav-dropdown">
+                                {{userSession.initials}}
+                            </a>
                         </div>
                     </li>
                 </ul>
