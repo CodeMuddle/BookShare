@@ -34,31 +34,23 @@ export default Ember.Controller.extend({
             this.set('meta', books.get('meta'));
         },
 
-        saveBook(bookData) {
-            let book = bookData.book;
-            let status = bookData.status;
+        saveBook(book) {
             let promise;
             if(this.get('isInEditMode')) {
                 const modelToEdit = this.get('modelToEdit');
 
                 book.modifiedTime = Math.floor(Date.now()/1000);
                 modelToEdit.setProperties(book);
-                
-                modelToEdit.get('status').setProperties(status);
 
                 promise = modelToEdit.save();
             } else {
-                status.isBorrowed = false;
-                let bookStatus = this.store.createRecord('book-status', status);
+                book.isBorrowed = false;
 
                 book.createdTime = Math.floor(Date.now()/1000);
                 book.modifiedTime = book.createdTime;
 
                 let bookRecord = this.store.createRecord('book', book);
                 bookRecord.set('user', this.get('userSession.user'));
-                bookRecord.set('status', bookStatus);
-
-                //bookStatus.set('book', bookRecord);
                 promise = bookRecord.save();
             }
  
@@ -92,12 +84,9 @@ export default Ember.Controller.extend({
                 confirmButtonColor: "#ec6c62"
             },
             function() {
-                currentBook.get('status')
-                .then((status) => {return status.destroyRecord()})
-                .then(currentBook.destroyRecord())
-                .then(() => {
-                    Materialize.toast('Deleted', 3000);
-                });
+                currentBook.destroyRecord()
+                .then(() => {Materialize.toast('Deleted', 3000);})
+                .catch(() => {Materialize.toast('Sorry! There was a problem deleting that book', 3000)});
             });
         },
     

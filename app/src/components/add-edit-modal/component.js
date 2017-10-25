@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     firstBook: null,
     editMode: false,
-    loading: true,
 
     labelClass: Ember.computed('editMode', function() {
         if(this.get('editMode')) return 'active';
@@ -15,23 +14,15 @@ export default Ember.Component.extend({
         this._super(...arguments);
         if(!this.editMode) {
             this.set('dataModel', {
-                book: {
-                    name: "",
-                    author: "",
-                    description: "",
-                    imageURL: "",
-                },
-                status: {
-                    isAvailable: true
-                }
+                name: "",
+                author: "",
+                description: "",
+                imageURL: "",
+                status: "",
+                isBorrowable: true
             });
-            this.set('loading', false);
         } else {
-            this.set('dataModel', {
-                book: Object.assign({}, this.get('model').data),
-                status: Object.assign({}, this.get('model.status').data)
-            });
-            this.set('loading', false);
+            this.set('dataModel', Object.assign({}, this.get('model').data));
         }
     },
 

@@ -8,7 +8,7 @@
                 <h4>{{if editMode 'Edit Book' 'Add Book'}}</h4>
             </div>
             <div class="col s6 text-right">
-                {{md-switch checked=dataModel.status.isAvailable onLabel="Available" offLabel="Unavailable"}}                
+                {{md-switch checked=dataModel.isBorrowable onLabel="Allow Borrow Requests" offLabel="Don't Allow"}}                
             </div>
         </div>
         
@@ -16,28 +16,28 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">title</i>
-                    {{input id="book_title_field" type="text" value=dataModel.book.name class="form-control validate"}}
+                    {{input id="book_title_field" type="text" value=dataModel.name class="form-control validate"}}
                     <label for="book_title_field" class={{labelClass}}>Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    {{input id="book_author_field" type="text" value=dataModel.book.author class="form-control validate"}}
+                    {{input id="book_author_field" type="text" value=dataModel.author class="form-control validate"}}
                     <label for="book_author_field" class={{labelClass}}>Author</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    {{textarea id="book_about_field" type="text" value=dataModel.book.description class="form-control validate materialize-textarea"}}
+                    {{textarea id="book_about_field" type="text" value=dataModel.description class="form-control validate materialize-textarea"}}
                     <label for="book_about_field" class={{labelClass}}>Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    {{input id="book_image_field" type="text" value=dataModel.book.imageURL class="form-control validate"}}
+                    {{input id="book_image_field" type="text" value=dataModel.imageURL class="form-control validate"}}
                     <label for="book_image_field" class={{labelClass}}>Image URL</label>
                 </div>
             </div>

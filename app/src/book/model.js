@@ -6,11 +6,11 @@ export default DS.Model.extend({
     name: DS.attr('string'),
     author: DS.attr('string'),
     description: DS.attr('string'),
+    isBorrowable: DS.attr('boolean'),
+    isBorrowed: DS.attr('boolean'),
     user: DS.belongsTo('user', {async: true, inverse: null}),
     createdTime: DS.attr('string'),
-    modifiedTime: DS.attr('string'),
-    status: DS.belongsTo('book-status', {async: false, inverse: null}),
-    sta: DS.attr('')
+    modifiedTime: DS.attr('string')
 })
 .reopen({
     imgurl: computed('imageURL', {
@@ -23,5 +23,8 @@ export default DS.Model.extend({
             this.set('imageURL', value);
             return value;
         }
-    })
+    }),
+    isAvailable: computed('isBorrowable', 'isBorrowed', function() {
+        return this.get('isBorrowable') && !this.get('isBorrowed');
+    }).readOnly()
 });
