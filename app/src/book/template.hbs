@@ -30,34 +30,31 @@
             <!-- Modal Trigger -->
             {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Status</a> --}}
             {{#if model.isAvailable}}
-                {{md-btn text='Request' action='modalfire'}}
-                
-                {{#if modalIsOpen}}
-                    {{#md-modal action="closeModal" }}
-                            <div class="modal-content">
-                                <div class="col m3">
-                                    <h4>Book Request</h4>
-                                    <select class="browser-default">
-                                        <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">1 day</option>
-                                        <option value="2">2 days</option>
-                                        <option value="3">3 days</option>
-                                        <option value="4">4 days</option>
-                                    </select>
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                                {{action 'agree'}}>
-                                Apply
-                            </a>
-                            <a class="modal-action modal-close waves-effect waves-green btn-flat"
-                                {{action 'closeModal'}}>
-                                Cancel
-                            </a>
-                        </div>
-                    {{/md-modal}}
-                {{/if}}
+                {{#unless (eq userSession.user.id model.user.id)}}
+                    {{md-btn text='Request' action='modalfire'}}
+                    
+                    {{#if modalIsOpen}}
+                        {{#md-modal action="closeModal" }}
+                                <div class="modal-content">
+                                    <div class="col m3">
+                                        <h4>Book Request</h4>
+                                        {{input id="requestDay" type="number" class="validate" value=defDays}}
+                                        <label for="requestDay">Enter Days</label>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                    {{action 'agree' model}}>
+                                    Apply
+                                </a>
+                                <a class="modal-action modal-close waves-effect waves-green btn-flat"
+                                    {{action 'closeModal'}}>
+                                    Cancel
+                                </a>
+                            </div>
+                        {{/md-modal}}
+                    {{/if}}
+                {{/unless}}
             {{/if}}
         </div>
     </div>

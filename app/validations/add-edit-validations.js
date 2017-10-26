@@ -18,7 +18,6 @@ import {
       validatePresence({presence: true, message: 'Field cannot be empty'}),
     ],
     imageURL: [
-      validatePresence({presence: true, message: 'Field cannot be empty'}),
       validateFormat({ type: 'url', message:'Please enter a valid url'})
     ]
   };
