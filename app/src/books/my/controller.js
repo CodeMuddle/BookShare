@@ -96,7 +96,8 @@ export default Ember.Controller.extend({
         {
             this.set('modalIsOpen', false);                
         },
-        toggleReqModal(){
+        toggleReqModal(book){
+            this.set('bookToViewRequests', book);
             this.toggleProperty('requestModalIsOpen');
         }
     }

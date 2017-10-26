@@ -2,29 +2,36 @@
     <span class="modal-cancel">
       <i class="material-icons" {{action 'closeReqModal'}}>cancel</i>
     </span>
-    <div class="row">
-        {{#unless isAccept}}
-        <div class="col s6">abhinabraj</div>
-        <div class="col s3">
-            <button class="waves-effect waves-light btn accept-btn" {{action 'acceptReq'}}>
-                Accept
-            </button>
-        </div>
-        <div class="col s3">
-            <button class="waves-effect waves-light btn decline-btn"{{action 'declineReq'}}>
-                Decline
-            </button>
-        </div>
+
+
+{{#each requests as |request|}}
+    <div class="row">    
+        {{#if (eq request.status 'pending')}}
+            <div class="col s6">{{request.requester.username}}</div>
+            {{#unless book.isBorrowed}}
+                <div class="col s3">
+                    <button class="waves-effect waves-light btn accept-btn" {{action 'acceptReq' request}}>
+                        Accept
+                    </button>
+                </div>
+                <div class="col s3">
+                    <button class="waves-effect waves-light btn decline-btn"{{action 'declineReq' request}}>
+                        Decline
+                    </button>
+                </div>
+            {{else}}
+                Cancelled
+            {{/unless}}
         {{else}}
-        <div class="col s12">
-            <span class="acceptReq">
-            <i class="material-icons">thumb_up</i>
-            your request is accepted for abhinabraj</span>  
-        </div>
-        {{/unless}}
+            <div class="col s12">
+                <span class="acceptReq">
+                <i class="material-icons">thumb_up</i>
+                Your request is {{request.status}} for {{request.requester.username}}</span>  
+            </div>
+        {{/if}}
     </div>
     <div class="divider"></div>
-    
+{{/each}}
 {{!-- <div class="modal-footer">
     <a class="modal-action modal-close waves-effect waves-orange btn-flat agree-button" {{action 'agree'}}>
         Done!

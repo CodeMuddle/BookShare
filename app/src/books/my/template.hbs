@@ -49,12 +49,7 @@
                     <span><p>{{book.description}}</p></span>
                     {{!-- {{#if book.requestby}} --}}
                         <span class="request-link">
-                        Request available- <a {{action 'toggleReqModal'}}> view request</a>    
-                        {{#if requestModalIsOpen}}
-                            {{#md-modal close='closeModal' class="test-modal"}}
-                                {{request-modal onCloseClick='toggleReqModal'}}
-                            {{/md-modal}}
-                        {{/if}}
+                        Request available- <a {{action 'toggleReqModal' book}}> view request</a>    
                         </span>
                     {{!-- {{/if}} --}}
                     </div>
@@ -68,6 +63,12 @@
                 </div>  
             </div>
     {{/model-query-list}}
+
+    {{#if requestModalIsOpen}}
+        {{#md-modal close='closeModal' class="test-modal"}}
+            {{request-modal book=bookToViewRequests onCloseClick='toggleReqModal'}}
+        {{/md-modal}}
+    {{/if}}
 
     <!-- fixed floating action button-->
     <div class="fixed-action-btn">

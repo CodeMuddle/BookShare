@@ -10,7 +10,8 @@ export default DS.Model.extend({
     isBorrowed: DS.attr('boolean'),
     user: DS.belongsTo('user', {async: true, inverse: null}),
     createdTime: DS.attr('string'),
-    modifiedTime: DS.attr('string')
+    modifiedTime: DS.attr('string'),
+    requests:DS.hasMany('bookrequest',{async:true, inverse:null})
 })
 .reopen({
     imgurl: computed('imageURL', {
