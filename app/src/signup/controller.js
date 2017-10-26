@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
 
     actions: {
         createNew: function(changeset) {
+            
             changeset.validate().then(() => {
                 if(changeset.get('isValid')){
                     this.set('fname', changeset.get('fname'));
