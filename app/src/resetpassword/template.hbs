@@ -11,22 +11,13 @@
                             <form>
                                 <div class="row margin-top-2">
                                     {{inline-errors changeset=changeset class='col s12' icon='email' propertyId='emailAddress' propertyType='email' propertyLabel='Enter your Email ID'}}
-
-                                    {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordId' propertyType='password' propertyLabel='Enter your secret password'}}
                                 </div>
                                 <button id="loginBtn" type="submit" class="btn waves-effect waves-light" {{action 'validateLogin' changeset}}>
-                                    Login
+                                    Submit
                                     <i class="material-icons right">send</i>
                                 </button>
                             </form>
-                        {{/with}}    
-                        
-                        <div class="margin-top-2">
-                            <p>New User? Come on {{#link-to 'signup'}}Sign Up{{/link-to}}</p> <br>
-                            <p>{{#link-to 'resetpassword'}}
-                                Forgot Password?
-                            {{/link-to}} </p>
-                        </div>
+                        {{/with}}
                     </div>
                 </div>    
             </div>

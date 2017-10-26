@@ -19,6 +19,7 @@ Router.map(function() {
   });
   this.authenticatedRoute('settings');
   this.route('notfound', { path: '/*path' });
+  this.route('resetpassword');
 });
 
 export default Router;
