@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
     q: '',
     limit: 20,
     page: 1,
+    userSession:Ember.inject.service('user-session'),
 
     searchQuery: Ember.computed('q', 'sort', 'dir', 'page', 'limit', function() {
         //return this.getProperties(this.get('queryParams'));

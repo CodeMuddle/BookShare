@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
     actions:{
         acceptReq(){
-            console.log('request is accepted');
+            
             this.set('isAccept', true);
         },
         closeReqModal(){
