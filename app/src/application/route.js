@@ -6,7 +6,7 @@ const LOGGED_IN_DEFAULT = 'dashboard';
 const LOGGED_OUT_DEFAULT = 'login';
 
 export default Ember.Route.extend({
-    user: Ember.inject.service(),
+    'user-session': Ember.inject.service(),
 
     beforeModel(transition) {
         if(typeof this.get('session.isAuthenticated') === "undefined") {
@@ -16,12 +16,14 @@ export default Ember.Route.extend({
 
     model() {
         if (this.get('session.isAuthenticated')) {
-            this.store.findRecord('user', this.get('session.uid')).then((content) => {
-                this.get('user').setDetails(content.data);
+            return this.store.findRecord('user', this.get('session.uid')).then((content) => {
+                this.get('user-session').setUser(content);
+            }).catch((error) => {
+                console.log('data error', error);
             })
         }
     },
-    
+
     actions: {
         accessDenied() {
             if(this.get('session.isAuthenticated'))

@@ -5,18 +5,18 @@
                 <h4> {{resultText}} </h4>
             {{/if}}
         </div>
-        <div class="col m3 text-right">
+        <!--div class="col m3 text-right">
             <a class="btn indigo" {{action 'toggleFilter'}}>
                 <i class="material-icons left">filter_list</i> Filter
             </a>
-        </div>
+        </div-->
     </div>
 
     <div class="divider"></div>
 
     <!--Options-->
     {{#if filterOpen}}
-        <div class="search-filters">
+        <!--div class="search-filters">
             {{#md-card-panel}}
                 <div class="row">
                     <div class="col s6">
@@ -35,11 +35,11 @@
                     </div>
                 </div>
             {{/md-card-panel}}
-        </div>
+        </div-->
     {{/if}}
     <div class="search-options">
         <div class="row">
-            <div class="col m6">
+            <!--div class="col m6">
                 {{material-sort 
                     fields=sortFields 
                     onSort='handleSort'
@@ -54,7 +54,7 @@
                     totalPages=meta.totalPages
                     onPageClick='setPage'
                 }}
-            </div>
+            </div-->
         </div>
     </div>
     <!--/Options-->

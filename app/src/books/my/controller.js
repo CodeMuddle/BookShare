@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    userSession: Ember.inject.service(),
+
     queryParams: ['page', 'limit', 'sort', 'dir', 'q'],
     modalIsOpen: false,
-    requestModalIsOpen:false,
+    requestModalIsOpen: false,
     modelToEdit: null,
     sortFields: ['name', 'author', 'newest'],
     sort: 'name',
@@ -13,7 +15,8 @@ export default Ember.Controller.extend({
     page: 1,
 
     searchQuery: Ember.computed('q', 'sort', 'dir', 'page', 'limit', function() {
-        return this.getProperties(this.get('queryParams'));
+        //return this.getProperties(this.get('queryParams'));
+        return {sort: 'user', q: this.get('session.uid')};
     }).readOnly(),
 
     actions: {
@@ -35,12 +38,23 @@ export default Ember.Controller.extend({
         saveBook(book) {
             let promise;
             if(this.get('isInEditMode')) {
-                this.get('modelToEdit').setProperties(book);
-                promise = this.get('modelToEdit').save();
-            } else {
-                promise = this.store.createRecord('book', book).save();
-            }
+                const modelToEdit = this.get('modelToEdit');
 
+                book.modifiedTime = Math.floor(Date.now()/1000);
+                modelToEdit.setProperties(book);
+
+                promise = modelToEdit.save();
+            } else {
+                book.isBorrowed = false;
+
+                book.createdTime = Math.floor(Date.now()/1000);
+                book.modifiedTime = book.createdTime;
+
+                let bookRecord = this.store.createRecord('book', book);
+                bookRecord.set('user', this.get('userSession.user'));
+                promise = bookRecord.save();
+            }
+ 
             promise.then((data) => {
                 Materialize.toast("Your book was saved successfully!!", 2000);
                 this.set("modalIsOpen", false);
@@ -71,9 +85,9 @@ export default Ember.Controller.extend({
                 confirmButtonColor: "#ec6c62"
             },
             function() {
-                currentBook.destroyRecord().then(() => {
-                    Materialize.toast('Deleted', 3000);
-                });
+                currentBook.destroyRecord()
+                .then(() => {Materialize.toast('Deleted', 3000);})
+                .catch(() => {Materialize.toast('Sorry! There was a problem deleting that book', 3000)});
             });
         },
     

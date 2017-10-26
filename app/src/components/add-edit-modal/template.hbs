@@ -1,42 +1,55 @@
+{{#if loading}}
+    {{loader-stretch}}
+{{else}}
 <form >    
-    <div class="modal-content">
-        <h4>{{if editMode 'Edit Book' 'Add Book'}}</h4>
+    <div class="modal-content no-overflow-x">
+        <div class="row">
+            <div class="col s6">
+                <h4>{{if editMode 'Edit Book' 'Add Book'}}</h4>
+            </div>
+            <div class="col s6 text-right">
+                {{md-switch checked=dataModel.isBorrowable onLabel="Allow Borrow Requests" offLabel="Don't Allow"}}                
+            </div>
+        </div>
+        
         <!--add-book-form-->
             <div class="row">
-                <div class="input-field col s8">
-                <i class="material-icons prefix">title</i>
-                {{input id="icon_prefix" type="text" value=model.name class="form-control validate"}}
-                <label for="icon_prefix" class={{labelClass}}>Title</label>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">title</i>
+                    {{input id="book_title_field" type="text" value=dataModel.name class="form-control validate"}}
+                    <label for="book_title_field" class={{labelClass}}>Title</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s8">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    {{input id="icon_prefix1" type="text" value=model.author class="form-control validate"}}
-                    <label for="icon_prefix1" class={{labelClass}}>Author</label>
+                    {{input id="book_author_field" type="text" value=dataModel.author class="form-control validate"}}
+                    <label for="book_author_field" class={{labelClass}}>Author</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s8">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    {{textarea id="icon_prefix2" type="text" value=model.description class="form-control validate materialize-textarea"}}
-                    <label for="icon_prefix2" class={{labelClass}}>Description</label>
+                    {{textarea id="book_about_field" type="text" value=dataModel.description class="form-control validate materialize-textarea"}}
+                    <label for="book_about_field" class={{labelClass}}>Description</label>
                 </div>
             </div>
-            {{!-- <div class="row">
-                <div class="file-field input-field col s8">
-                    <i class="material-icons prefix">file_upload</i>
-                    {{input class="file-path validate" value=model.img type="file" accept="image/png,image/jpeg,image/jpg" id="file_upload"}}
-                    <input multiple="true" onchange={{action "upload"}} accept="image/png,image/jpeg,application/pdf" type="file"/>
-                    <label for="file_upload">Upload Image</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">image</i>
+                    {{input id="book_image_field" type="text" value=dataModel.imageURL class="form-control validate"}}
+                    <label for="book_image_field" class={{labelClass}}>Image URL</label>
                 </div>
-            </div>   --}}
+            </div>
+            <div class="row">
+                
+            </div>
         <!--add-book-form end-->              
     </div>
     <div class="modal-footer">
         <a class="modal-action modal-close waves-effect waves-green btn-flat"
             {{action 'onUpdate'}}>
-            {{if editMode 'Edit' 'Add'}} 
+            {{if editMode 'Update' 'Add'}} 
         </a>
         <a class="modal-action modal-close waves-effect waves-red btn-flat"
             {{action 'onClose'}}>
@@ -45,3 +58,4 @@
     </div>
 </form>
 {{yield}}
+{{/if}}
