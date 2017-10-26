@@ -1,13 +1,11 @@
 import Ember from 'ember';
+import addEditValidations from '../../../validations/add-edit-validations';
 
 export default Ember.Component.extend({
+    addEditValidations,
     firstBook: null,
     editMode: false,
-
-    labelClass: Ember.computed('editMode', function() {
-        if(this.get('editMode')) return 'active';
-        else return '';
-    }),
+    classNames: ['input-field col s12'],
 
     didReceiveAttrs()
     {
@@ -27,8 +25,17 @@ export default Ember.Component.extend({
     },
 
     actions: {
-        onUpdate() {
-            this.sendAction('onActionClick', this.get('dataModel'));
+        onUpdate(changeset) {
+            changeset.validate().then(() => {
+                if(changeset.get('isValid')) {
+                    changeset.save();
+                    // console.log('Changeset milo');
+                    this.sendAction('onActionClick', this.get('dataModel'));
+                    console.log(this.get('dataModel'));
+                } else {
+                   console.log(changeset.get('errors'));
+                }
+            })
         },
         onClose() {
             this.sendAction('onCancelClick');

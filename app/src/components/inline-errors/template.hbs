@@ -3,8 +3,8 @@
 {{#if icon}}
         <i class="material-icons prefix">{{icon}}</i>    
 {{/if}}
-{{input id=propertyId value=(get changeset propertyId) type=propertyType class=(if (get changeset.error propertyId) 'validate invalid' 'validate')}}
-<label for={{propertyId}}>{{propertyLabel}}</label>
+{{input id=propertyId value=(get changeset propertyId) type=propertyType class=inputClass}}
+<label for={{propertyId}} class={{labelClass}}>{{propertyLabel}}</label>
 {{#if (get changeset.error propertyId)}}
     <span id='error-{{propertyId}}' class="inline-error">{{ get (get (get changeset.error propertyId) 'validation') '0' }} </span>
 {{/if}}

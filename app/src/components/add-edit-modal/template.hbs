@@ -1,54 +1,40 @@
 {{#if loading}}
     {{loader-stretch}}
 {{else}}
-<form >    
+{{#with (changeset dataModel addEditValidations) as |changeset|}}
+<form>    
     <div class="modal-content no-overflow-x">
         <div class="row">
-            <div class="col s6">
+            <div class="col s12">
                 <h4>{{if editMode 'Edit Book' 'Add Book'}}</h4>
             </div>
-            <div class="col s6 text-right">
-                {{md-switch checked=dataModel.isBorrowable onLabel="Allow Borrow Requests" offLabel="Don't Allow"}}                
+        </div>
+        <div class="row">
+            <div class="col s12 right-align">
+                {{md-switch checked=dataModel.isBorrowable onLabel="Allow Borrow Requests" offLabel="Don't Allow"}}
             </div>
         </div>
         
         <!--add-book-form-->
+           
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">title</i>
-                    {{input id="book_title_field" type="text" value=dataModel.name class="form-control validate"}}
-                    <label for="book_title_field" class={{labelClass}}>Title</label>
-                </div>
+                {{inline-errors changeset=changeset editMode=editMode propertyId='name' propertyType='text' propertyLabel='Title' icon='title'}}
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">account_circle</i>
-                    {{input id="book_author_field" type="text" value=dataModel.author class="form-control validate"}}
-                    <label for="book_author_field" class={{labelClass}}>Author</label>
-                </div>
+                {{inline-errors changeset=changeset editMode=editMode propertyId='author' propertyType='text' propertyLabel='Author' icon='account_circle'}}
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">description</i>
-                    {{textarea id="book_about_field" type="text" value=dataModel.description class="form-control validate materialize-textarea"}}
-                    <label for="book_about_field" class={{labelClass}}>Description</label>
-                </div>
+                {{inline-errors changeset=changeset editMode=editMode propertyId='description' propertyType='text' propertyLabel='Description' icon='description'}}
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">image</i>
-                    {{input id="book_image_field" type="text" value=dataModel.imageURL class="form-control validate"}}
-                    <label for="book_image_field" class={{labelClass}}>Image URL</label>
-                </div>
+                {{inline-errors changeset=changeset editMode=editMode propertyId='imageURL' propertyType='text' propertyLabel='Image URL' icon='image'}}
             </div>
-            <div class="row">
-                
-            </div>
+           
         <!--add-book-form end-->              
     </div>
     <div class="modal-footer">
         <a class="modal-action modal-close waves-effect waves-green btn-flat"
-            {{action 'onUpdate'}}>
+            {{action 'onUpdate' changeset}}>
             {{if editMode 'Update' 'Add'}} 
         </a>
         <a class="modal-action modal-close waves-effect waves-red btn-flat"
@@ -57,5 +43,6 @@
         </a>
     </div>
 </form>
+ {{/with}}
 {{yield}}
 {{/if}}
