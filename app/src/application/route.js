@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     model() {
         if (this.get('session.isAuthenticated')) {
             return this.store.findRecord('user', this.get('session.uid')).then((content) => {
-                this.get('user-session').setDetails(content.data);
+                this.get('user-session').setUser(content);
             }).catch((error) => {
                 console.log('data error', error);
             })

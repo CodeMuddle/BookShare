@@ -1,15 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-    detail: {
-        firstName: null,
-        lastName: null,
-        email: null
-    },
+    user: Ember.Object.create(),
 
-    initials: Ember.computed('detail.firstName', 'detail.lastName', function() {
-        let firstName = this.get('detail.firstName');
-        let lastName = this.get('detail.lastName');
+    initials: Ember.computed('user.firstName', 'user.lastName', function() {
+        let firstName = this.get('user.firstName');
+        let lastName = this.get('user.lastName');
         let init = "";
         
         if(firstName && firstName.length > 0)
@@ -23,16 +19,12 @@ export default Ember.Service.extend({
             
     }).readOnly(),
 
-    setDetails(detail) {
-        this.set('detail', detail);
+    setUser(user) {
+        this.set('user', user);
     },
 
-    clearDetails() {
-        this.set('detail', {
-            firstName: null,
-            lastName: null,
-            email: null
-        });
+    clearUser() {
+        this.set('user', Ember.Object.create());
     }
 });
 

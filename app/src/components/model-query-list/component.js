@@ -8,6 +8,16 @@ export default Ember.Component.extend({
     query: {},
     options: {},
 
+    getFirebaseQuery() {
+        const q = this.get('query');
+        let query = {};
+        if(q.sort) query.orderBy = q.sort;
+        
+        if(q.q) query.equalTo = q.q;
+
+        return query;
+    },
+
     queryItems: task(function *(debounce=200) {
         yield timeout(debounce);
 
@@ -21,7 +31,7 @@ export default Ember.Component.extend({
         } else {
             items = yield this.get('store').query(
                 this.get('model'), 
-                this.get('query') || {}
+                this.getFirebaseQuery() || {}
             );
         }
 

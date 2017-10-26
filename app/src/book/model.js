@@ -6,9 +6,9 @@ export default DS.Model.extend({
     name: DS.attr('string'),
     author: DS.attr('string'),
     description: DS.attr('string'),
-    isAvailable: DS.attr('boolean'),
+    isBorrowable: DS.attr('boolean'),
     isBorrowed: DS.attr('boolean'),
-    userId: DS.attr('string'),
+    user: DS.belongsTo('user', {async: true, inverse: null}),
     createdTime: DS.attr('string'),
     modifiedTime: DS.attr('string')
 })
@@ -23,5 +23,8 @@ export default DS.Model.extend({
             this.set('imageURL', value);
             return value;
         }
-    })
+    }),
+    isAvailable: computed('isBorrowable', 'isBorrowed', function() {
+        return this.get('isBorrowable') && !this.get('isBorrowed');
+    }).readOnly()
 });
