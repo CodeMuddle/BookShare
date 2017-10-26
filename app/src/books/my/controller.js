@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
     queryParams: ['page', 'limit', 'sort', 'dir', 'q'],
     modalIsOpen: false,
-    requestModalIsOpen:false,
+    requestModalIsOpen: false,
     modelToEdit: null,
     sortFields: ['name', 'author', 'newest'],
     sort: 'name',
@@ -15,7 +15,8 @@ export default Ember.Controller.extend({
     page: 1,
 
     searchQuery: Ember.computed('q', 'sort', 'dir', 'page', 'limit', function() {
-        return this.getProperties(this.get('queryParams'));
+        //return this.getProperties(this.get('queryParams'));
+        return {sort: 'user', q: this.get('session.uid')};
     }).readOnly(),
 
     actions: {
