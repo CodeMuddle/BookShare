@@ -14,7 +14,7 @@ import {
       validatePresence({presence: true, message: 'Field cannot be empty'}),
     ],
     description: [
-      validateLength({max: 35, message: 'Too long'}),
+      validateLength({max: 65535, message: 'Too long'}),
       validatePresence({presence: true, message: 'Field cannot be empty'}),
     ],
     imageURL: [
