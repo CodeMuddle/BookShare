@@ -7,7 +7,7 @@
             <div class="col s9">
                 <h5>{{link-to book.name 'book' book.id}}</h5>
                 <p>{{book.author}}</p>
-
+                <p class="book-card-username">Added by {{book.user.username}}</p>
                 {{#if book.isAvailable}}
                     <p><span class="success-icon"><i class="material-icons">lens</i></span> Available</p>
                 {{else}}

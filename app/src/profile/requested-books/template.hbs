@@ -1,0 +1,20 @@
+{{outlet}}
+
+<table class="striped about-table">
+    <thead>
+        <tr>
+            <th><span class="table-head">Book Name</span></th>
+            <th><span class="table-head">Duration</span></th>
+            <th><span class="table-head">Status</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |request|}}
+        <tr>
+            <td>{{request.book.name}}</td>
+            <td>{{request.duration}} days</td>
+            <td>{{request.status}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

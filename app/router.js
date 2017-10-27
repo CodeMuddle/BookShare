@@ -20,6 +20,11 @@ Router.map(function() {
   this.authenticatedRoute('settings');
   this.route('notfound', { path: '/*path' });
   this.route('resetpassword');
+
+  this.route('profile', function() {
+    this.route('about');
+    this.route('requested-books');
+  });
 });
 
 export default Router;
