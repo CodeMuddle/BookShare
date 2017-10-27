@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    listQuery: { page: 1 },
+    listQuery: { page: 1, limitToLast: 10 },
     listMeta: { page: 0, totalPages: 0 },
 
     actions: {

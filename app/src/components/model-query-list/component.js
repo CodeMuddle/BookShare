@@ -12,7 +12,8 @@ export default Ember.Component.extend({
         const q = this.get('query');
         let query = {};
         if(q.sort) query.orderBy = q.sort;
-        
+        if(q.limitToLast) query.limitToLast = q.limitToLast;
+        if(q.limitToFirst) query.limitToFirst = q.limitToFirst;
         if(q.q) query.equalTo = q.q;
 
         return query;

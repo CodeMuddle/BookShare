@@ -16,7 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     model() {
         return Ember.RSVP.hash({
-            carouselBooks: this.store.query('book', {})
+            carouselBooks: this.store.query('book', {limitToLast: 5})
         });
     }
 });
