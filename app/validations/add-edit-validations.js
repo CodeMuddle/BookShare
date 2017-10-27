@@ -6,11 +6,11 @@ import {
   
   export default {
     name:[
-      validateLength({max: 20, message: 'Too long'}),
+      validateLength({max: 255, message: 'Too long'}),
       validatePresence({presence: true, message: 'Field cannot be empty'}),
     ],
     author:[
-      validateLength({max: 20, message: 'Too long'}),
+      validateLength({max: 255, message: 'Too long'}),
       validatePresence({presence: true, message: 'Field cannot be empty'}),
     ],
     description: [
