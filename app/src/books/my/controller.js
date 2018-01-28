@@ -91,8 +91,7 @@ export default Ember.Controller.extend({
             });
         },
     
-        closeModal()
-        {
+        closeModal() {
             this.set('modalIsOpen', false);                
         },
         toggleReqModal(book){

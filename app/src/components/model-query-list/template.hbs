@@ -7,5 +7,7 @@
 {{else}}
     {{#each items as |item|}}
        {{yield item}}
+    {{else}}
+    {{yield}}
     {{/each}}
 {{/if}}

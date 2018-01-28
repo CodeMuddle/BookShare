@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     addEditValidations,
     firstBook: null,
     editMode: false,
-    classNames: ['input-field col s12'],
+    // classNames: ['input-field col s12'],
 
     didReceiveAttrs()
     {

@@ -10,18 +10,13 @@
          <a href="#!email"><span class=" email">{{userSession.detail.email}}</span></a>
       </div>
    </li>
-   <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-   <li><a href="#!">Second Link</a></li>
-   <li><div class="divider"></div></li>
-   <li><a class="subheader">Subheader</a></li>
-   <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+   {{#link-to 'dashboard' tagName="li"}}<a href="/dashboard">Dashboard</a>{{/link-to}}
+   {{#link-to 'books.my' tagName="li"}}<a href="/books/my">My Books</a>{{/link-to}}
 </ul>
 
 <!--********************Nav-Bar******************** -->
 <!-- Dropdown Structure -->
 <ul id="nav-dropdown" class="dropdown-content">
-   <li>{{link-to 'Dashboard' 'dashboard'}}</li>
-   <li>{{link-to 'My Books' 'books.my'}}</li>
    <li>{{link-to 'Profile' 'profile'}}</li>
    <li class="divider"></li>
    <li><a href="#" {{action 'onLogout'}}>Logout</a></li>

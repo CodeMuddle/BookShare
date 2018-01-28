@@ -22,11 +22,17 @@
 
                                     {{inline-errors changeset=changeset class='col s12' icon='vpn_key' propertyId='passwordIdConfirmation' propertyType='password' propertyLabel='Please enter the password again'}}
                                 </div>
-                                
+                                {{#if createUserTask.isIdle}}
                                 <button type="submit" id="signBtn" class="btn waves-effect waves-light" {{action 'createNew' changeset}} >
                                     <i class="material-icons right">send</i>
                                     Create My Account
                                 </button>
+                                {{else}}
+                                <button type="button" id="signBtn" class="btn waves-effect waves-light disabled" >
+                                    <i class="material-icons right">send</i>
+                                    Creating ...
+                                </button>
+                                {{/if}}
                             </form>
                         {{/with}}
                         

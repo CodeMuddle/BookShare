@@ -37,6 +37,7 @@
         query=searchQuery
         debounce=300
         as |book|}}
+        {{#if book}}
         <div class="divider"></div>
             <div class="section">
                 <div class="row">
@@ -62,6 +63,12 @@
                     </div>
                 </div>  
             </div>
+            {{else}}
+            <h5>No Books Available</h5>
+            <a class="btn-floating btn-large" {{action 'toggleModal'}}>
+                <i class="large material-icons">add</i>
+            </a>
+            {{/if}}
     {{/model-query-list}}
 
     {{#if requestModalIsOpen}}
