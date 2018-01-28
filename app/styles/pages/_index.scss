@@ -53,3 +53,14 @@
 .blue-grey.darken-1 {
     background-color: $theme-color !important;
 }
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: inherit;
+}
+
+.link {
+    color:#039be5;
+}

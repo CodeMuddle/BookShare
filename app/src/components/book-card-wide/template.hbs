@@ -5,7 +5,7 @@
                 <img class="myCardImg object-fit-cover" src="{{book.imgurl}}">
             </div>
             <div class="col s9">
-                <h5 title={{book.name}}>{{link-to (text-trim book.name 35) 'book' book.id}}</h5>
+                <h5 title={{book.name}}>{{link-to book.name 'book' book.id  class="truncate link"}}</h5>
                 <p>{{book.author}}</p>
                 <p class="book-card-username">Added by {{book.user.username}}</p>
                 {{#if book.isAvailable}}
